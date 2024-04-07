@@ -4,17 +4,16 @@ using namespace std;
 
 class Animal {
     private:
-        string name, color;
-        char gender;
+        string name, color, gender;
         int age, weight;
         Animal* next;
     public:
         // string find_color(string); //use sorting
         // string set_color(string);
         // string get_color();
-        Animal(string = "noname", char = 'F', int = 1, int = 5);
+        Animal(string = "noname", string = "female", int = 1, int = 5);
         string get_name();
-        char get_gender();
+        string get_gender();
         int get_age();
         void show_node();
         Animal* move_next();
@@ -25,32 +24,33 @@ class Animal {
 
 class cat : public Animal{
 private :
-    int no_cat=0;
+    static int no_cat;
 public:
-    cat(string,char,int,int);
+    cat(string,string,int,int);
     int get_size_cat();
 };
 
 class dog : public Animal{
 private:
-    int no_dog=0;
+    static int no_dog;
 public:
-    dog(string,char,int,int);
+    dog(string,string,int,int);
     int get_size_dog();
 };
 
-Animal::Animal(string n, char g, int a, int w)
+Animal::Animal(string n, string g, int a, int w)
 {
     name = n;
     gender = g;
     age = a;
 }
 
+int cat::no_cat=0;
+int dog::no_dog=0;
 
-cat::cat(string n,char g, int a ,int w) : Animal(n,g,a,w)
+cat::cat(string n,string g, int a ,int w) : Animal(n,g,a,w)
 {
     no_cat++;
-    cout<<"Number of cat = "<<no_cat<<endl;
 }
 
 int cat::get_size_cat()
@@ -58,7 +58,7 @@ int cat::get_size_cat()
     return no_cat;
 }
 
-dog::dog(string n,char g, int a ,int w) : Animal(n,g,a,w)
+dog::dog(string n,string g, int a ,int w) : Animal(n,g,a,w)
 {
     no_dog++;
     cout<<"Number of dog = "<<no_dog<<endl;
@@ -80,7 +80,7 @@ string Animal::get_name()
     return name;
 }
 
-char Animal::get_gender()
+string Animal::get_gender()
 {
     return gender;
 }

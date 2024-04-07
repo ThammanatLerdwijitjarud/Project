@@ -1,3 +1,4 @@
+#include "NODE.h"
 class LL : public Animal {
 private:
     Animal *hol;

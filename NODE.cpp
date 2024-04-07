@@ -2,7 +2,7 @@
 #include "NODE.h"
 using namespace std;
 
-Animal::Animal(string n, char g, int a, int w)
+Animal::Animal(string n, string g, int a, int w)
 {
     name = n;
     gender = g;
@@ -11,14 +11,14 @@ Animal::Animal(string n, char g, int a, int w)
 }
 
 
-cat::cat(string n,char g, int a ,int w) : Animal(n,g,a,w)
+cat::cat(string n,string g, int a ,int w) : Animal(n,g,a,w)
 {
     no_cat++;
     cout<<"Number of cat = "<<no_cat<<endl;
 }
 
 
-dog::dog(string n,char g, int a ,int w) : Animal(n,g,a,w)
+dog::dog(string n,string g, int a ,int w) : Animal(n,g,a,w)
 {
     no_dog++;
     cout<<"Number of dog = "<<no_dog<<endl;
