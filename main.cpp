@@ -6,10 +6,10 @@
 using namespace std;
 
 int cout_line_in_file();
-string read_name(int);
-string read_gender(int);
-string read_age(int);
-int read_weight(int);
+string read_name(const string& ,int);
+string read_gender(const string&, int);
+string read_age(const string&, int);
+int read_weight(const string&, int);
 
 int main()
 {
@@ -28,10 +28,10 @@ int main()
     {
         for(i=0;i<line;i++)
         {
-            n = read_name(i);
-            g = read_gender(i);
-            a = read_age(i);
-            w = read_weight(i);
+            n = read_name("name_cat.txt",i);
+            g = read_gender("gender_cat.txt",i);
+            a = read_age("age_cat.txt",i);
+            w = read_weight("weight_cat.txt",i);
             c[i] = new cat(n,g,a,w);
             c[i]->show_node();
             //L_cat.add_node(c[i]);

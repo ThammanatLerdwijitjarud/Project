@@ -20,10 +20,10 @@ int cout_line_in_file()
     return no_line;
 }
 
-string read_name(int n)
+string read_name(const string &filename,int n)
 {
     ifstream f;
-    f.open("name_cat.txt");
+    f.open(filename);
     int i=0,l;
     l = cout_line_in_file();
     string line, name[l];
@@ -36,10 +36,10 @@ string read_name(int n)
     return name[n];
 }
 
-string read_gender(int n)
+string read_gender(const string &filename, int n)
 {
     ifstream f;
-    f.open("gender_cat.txt");
+    f.open(filename);
     int i=0,l;
     l = cout_line_in_file();
     string line, gen[l];
@@ -52,10 +52,10 @@ string read_gender(int n)
     return gen[n];
 }
 
-string read_age(int n)
+string read_age(const string &filename,int n)
 {
     ifstream f;
-    f.open("age_cat.txt");
+    f.open(filename);
     int i=0,l;
     l = cout_line_in_file();
     string age[l], line;
@@ -69,10 +69,10 @@ string read_age(int n)
 
 }
 
-int read_weight(int n)
+int read_weight(const string &filename,int n)
 {
     ifstream f;
-    f.open("weight_cat.txt");
+    f.open(filename);
     int i,l;
     l = cout_line_in_file();
     int w;
