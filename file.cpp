@@ -52,20 +52,34 @@ string read_gender(int n)
     return gen[n];
 }
 
-// string read_age(int n)
-// {
-//     ifstream f;
-//     f.open("age_cat.txt");
-//     int i=0,l;
-//     l = cout_line_in_file();
-//     string age[l];
-//     string line;
-//     while(getline(f,line))
-//     {
-//         age[i] = line;
-//         i++;
-//     }
-//     f.close();
-//     return age[n];
+string read_age(int n)
+{
+    ifstream f;
+    f.open("age_cat.txt");
+    int i=0,l;
+    l = cout_line_in_file();
+    string age[l], line;
+    while(getline(f,line))
+    {
+        age[i] = line;
+        i++;
+    }
+    f.close();
+    return age[n];
 
-// }
+}
+
+int read_weight(int n)
+{
+    ifstream f;
+    f.open("weight_cat.txt");
+    int i,l;
+    l = cout_line_in_file();
+    int w;
+    for(i=0;i<=n;i++)
+    {
+        f>>w;
+    }
+    f.close();
+    return w;
+}
