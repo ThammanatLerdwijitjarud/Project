@@ -1,20 +1,4 @@
-#include "p_LL.h"
-
-int cout_line_in_file()
-{
-    ifstream f;
-    f.open("name_cat.txt");
-    string line;
-    int no_line=0;
-    while(getline(f,line))
-    {
-        no_line++;
-    }
-    // cout<<"no_line="<<no_line<<endl;
-    // cout<<"-----------------"<<endl;
-    f.close();
-    return no_line;
-}
+#include "LL.h"
 
 void create_cat_ll(LL &ll) {
     
@@ -38,7 +22,7 @@ void create_cat_ll(LL &ll) {
             getline(X, temp_weight, '\n');
             // cout<<temp_weight<<endl;
             temp_cat = new cat(temp_name, temp_sex, temp_age, stoi(temp_weight));
-            temp_cat->show_node();
+            // temp_cat->show_node();
             ll.add_node(temp_cat);
             // while(getline(X, temp, ',')) {
             //     cout<<temp<<endl;

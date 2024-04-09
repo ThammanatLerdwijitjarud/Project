@@ -1,11 +1,17 @@
 #include "NODE.h"
+#include"cat.h"
+#include"dog.h"
 class LL : public Animal {
 private:
-    Animal *hol;
+    Animal *hol = NULL;
+    cat *c_hol = NULL;
+    dog *d_hol = NULL;
     int size;
 public:
     void add_node(Animal*&);
-    void show_all();
+    void add_node(cat*&);
+    void add_node(dog*&);
+    void show_all(char);
     void delete_node(Animal*&);
     
     ~LL();
@@ -22,23 +28,54 @@ LL::~LL(){
      int i;
      Animal *temp;
      Animal *t=hol;
-     for(i=0;i<size;i++) //แก้
+     while(t != NULL)
      {
-          temp=t;
-          t=t->move_next();
+          temp = t;
+          t = t->move_next();
           delete temp;
      }
+     cat *c_temp;
+     cat *c_t = c_hol;
+     while(c_t != NULL)
+     {
+          // cout << "a" << endl;
+          c_temp = c_t;
+          // c_temp->show_node();
+          c_t = c_t->move_next();
+          delete c_temp;
+     }
+     // Animal *temp;
+     // Animal *t=hol;
+     // while(t!=NULL)
+     // {
+     //      temp = t;
+     //      t = t->move_next();
+     //      delete temp;
+     // }
      size=0;   
 }
 
-void LL::show_all(){
-     Animal* t=hol;
-     int i;
-     for(i=0;i<size;i++){
-        t->show_node();
-        t=t->move_next();
+void LL::show_all(char a){
+     if(a=='c')
+     {
+          cat* t = c_hol;
+          int i;
+          for(i=0;i<size;i++){
+               t->show_node();
+               t=t->move_next();
+          }
+          //cout<<"--------------------------"<<endl;
      }
-     cout<<"--------------------------"<<endl;
+     else
+     {
+          dog* t = d_hol;
+          int i;
+          for(i=0;i<size;i++){
+               t->show_node();
+               t=t->move_next();
+          }
+          //cout<<"--------------------------"<<endl;
+     }
      
 }
 void LL::add_node(Animal *&A){
@@ -48,7 +85,23 @@ void LL::add_node(Animal *&A){
 
        size++;
 
- }
+}
+void LL::add_node(cat *&A){
+
+          c_hol->insert(A);
+          c_hol=A;
+
+       size++;
+
+}
+void LL::add_node(dog *&A){
+
+          d_hol->insert(A);
+          d_hol=A;
+
+       size++;
+
+}
 
 void LL::delete_node(Animal *&n)
 {

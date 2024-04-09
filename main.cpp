@@ -1,8 +1,9 @@
 #include <iostream>
 #include<cstdlib>
 #include <fstream>
-//#include"NODE.h"
 #include"LL.h"
+// #include"cat.h"
+// #include"dog.h"
 using namespace std;
 
 int cout_line_in_file();

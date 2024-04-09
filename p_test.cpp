@@ -10,7 +10,11 @@ int main () {
 
     create_cat_ll(L_cat);
 
-    L_cat.show_all();
+    cout << "done" << endl;
+
+    L_cat.show_all('c');
+
+    cout << "done2" << endl;
 
     return 0;
 }
