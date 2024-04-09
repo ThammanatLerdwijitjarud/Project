@@ -1,0 +1,2 @@
+Garfield,F,1 year old,5 
+Tiger,M,2 months,10
