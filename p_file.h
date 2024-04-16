@@ -65,14 +65,3 @@ void create_dog_ll(LL &ll) {
     }
 
 }
-
-// void read_guideline(char c)
-// {
-//     fstream myfile;
-//     myfile.open("guideline.txt", ios::in);
-//     if(myfile.is_open())
-//     {
-//         string line;
-//     }
-
-// }
