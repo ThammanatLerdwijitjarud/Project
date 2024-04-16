@@ -1,5 +1,5 @@
 compile: main.cpp 
-	 g++  main.cpp NODE.h LL.h file.cpp -o animal
+	 g++  p_test.cpp -o animal
 
 run: animal
 	 ./animal

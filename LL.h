@@ -8,7 +8,7 @@ private:
     dog *d_hol = NULL;
     int size;
 public:
-    void add_node(Animal*&);
+//     void add_node(Animal*&);
     void add_node(cat*&);
     void add_node(dog*&);
     void show_all(char);
@@ -44,14 +44,14 @@ LL::~LL(){
           c_t = c_t->move_next();
           delete c_temp;
      }
-     // Animal *temp;
-     // Animal *t=hol;
-     // while(t!=NULL)
-     // {
-     //      temp = t;
-     //      t = t->move_next();
-     //      delete temp;
-     // }
+     dog *d_temp;
+     dog *d_t = d_hol;
+     while(d_t!=NULL)
+     {
+          d_temp = d_t;
+          d_t = d_t->move_next();
+          delete d_temp;
+     }
      size=0;   
 }
 
@@ -78,14 +78,14 @@ void LL::show_all(char a){
      }
      
 }
-void LL::add_node(Animal *&A){
+// void LL::add_node(Animal *&A){
 
-          hol->insert(A);
-          hol=A;
+//           hol->insert(A);
+//           hol=A;
 
-       size++;
+//        size++;
 
-}
+// }
 void LL::add_node(cat *&A){
 
           c_hol->insert(A);

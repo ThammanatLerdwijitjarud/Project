@@ -18,7 +18,7 @@ class Animal {
         int get_weight();
         void show_node();
         Animal* move_next();
-        void insert(Animal*&);
+        // void insert(Animal*&);
         void set_next(Animal *);
         void delete_node();
 };
@@ -60,9 +60,11 @@ void Animal::show_node()
     cout<<"Weight : "<<get_weight()<<" kg"<<endl;
 }
 
-void Animal::insert(Animal*& x) {
-    x->next=this;
-}
+// void Animal::insert(Animal*& x) {
+//     this->next = x;
+//     cout<<"change insert"<<"\n";
+//     // x->next=this;
+// }
 
 Animal* Animal::move_next()
 {

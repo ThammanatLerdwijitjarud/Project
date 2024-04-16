@@ -16,7 +16,6 @@ int dog::no_dog=0;
 dog::dog(string n,string g, string a ,int w) : Animal(n,g,a,w)
 {
     no_dog++;
-    cout<<"Number of dog = "<<no_dog<<endl;
 }
 
 int dog::get_size_dog()
