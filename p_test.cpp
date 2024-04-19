@@ -1,10 +1,9 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
-#include "main_donate.cpp"
+#include "donation.cpp"
 #include "add_on_func.cpp"
 #include "p_file.h"
-
 using namespace std;
 
 void donate(){
@@ -34,31 +33,39 @@ void donate(){
 
 }
 
-
 int main () {
-    int i;
-    i=menu();
-
     LL L_cat, L_dog;
+    int i;
+    char choice;
+    while(1)
+    {
+        i=menu();
 
-    if(i==1)
-    {
-        create_cat_ll(L_cat);
+        if(i==1)
+        {
+            create_cat_ll(L_cat);
+            
+            L_cat.show_all('c');
+            decide('c');
+            
+        }
+        else if(i==2)
+        {
+            create_dog_ll(L_dog);
         
-        L_cat.show_all('c');
-        decide('c');
-        
-    }
-    else if(i==2)
-    {
-        create_dog_ll(L_dog);
-    
-        L_dog.show_all('d');
-        decide('d');
-    }
-    else
-    {
-        donate();
+            L_dog.show_all('d');
+            decide('d');
+        }
+        else if(i==3)
+        {
+            donate();
+        }
+        cout<<"Do you want to do it again ? (y/n):  ";
+        cin>>choice;
+        if(choice=='n' || choice == 'N')
+        {
+            break;
+        }
     }
 
     return 0;
