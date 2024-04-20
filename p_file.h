@@ -2,7 +2,7 @@
 
 void create_cat_ll(LL &ll) {
     
-    cat * temp_cat;
+    Animal * temp_cat;
     string temp_name, temp_sex, temp_age, temp_weight;
 
     fstream myfile;
@@ -35,7 +35,7 @@ void create_cat_ll(LL &ll) {
 
 void create_dog_ll(LL &ll) {
     
-    dog * temp_dog;
+    Animal * temp_dog;
     string temp_name, temp_sex, temp_age, temp_weight;
 
     fstream myfile;
@@ -64,4 +64,10 @@ void create_dog_ll(LL &ll) {
         myfile.close();
     }
 
+}
+
+void create_ll(LL &ll) {
+    
+    create_cat_ll(ll);
+    create_dog_ll(ll);
 }

@@ -1,14 +1,14 @@
 class dog : public Animal{
 private:
     static int no_dog;
-    dog * d_next;
+    // dog * d_next;
 public:
     dog(string,string,string,int);
     int get_size_dog();
 
-    dog * move_next();
-    void insert(dog*&);
-    void set_next(dog *);
+    // dog * move_next();
+    // void insert(dog*&);
+    // void set_next(dog *);
 };
 
 int dog::no_dog=0;
@@ -23,15 +23,15 @@ int dog::get_size_dog()
     return no_dog;
 }
 
-dog* dog::move_next()
-{
-    return d_next;
-}
+// dog* dog::move_next()
+// {
+//     return d_next;
+// }
 
-void dog::insert(dog*& x) {
-    x->d_next=this;
-}
+// void dog::insert(dog*& x) {
+//     x->d_next=this;
+// }
 
-void dog::set_next(dog *n) {
-    this->d_next=n;
-}
+// void dog::set_next(dog *n) {
+//     this->d_next=n;
+// }
