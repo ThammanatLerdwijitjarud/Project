@@ -21,6 +21,7 @@ public:
      Animal* get_hol() const { return hol; }
      int get_size() const { return size; }
      void set_hol(Animal *new_hol) { hol = new_hol; }
+     void clear();
     
     ~LL();
     LL();
@@ -164,5 +165,22 @@ int LL::d_size()
      size--;
      return size;
 }
+
+void LL::clear() {
+    Animal *current = hol;
+    Animal *nextNode;
+
+    while (current != NULL) {
+        nextNode = current->move_next();
+        delete current;
+        current = nextNode;
+    }
+
+    // กำหนด hol เป็น NULL เพื่อบ่งชี้ว่าลิงก์ลิสต์ว่างเปล่า
+    hol = NULL;
+    size = 0; // รีเซ็ตขนาดลิงก์ลิสต์เป็น 0
+}
+
+
 
 

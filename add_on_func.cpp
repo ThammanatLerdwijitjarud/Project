@@ -4,10 +4,13 @@
 #include<iomanip>
 #include"pic.cpp"
 #include"p_file.h"
+
 // #include "delete.cpp"
 
-using namespace std;
+
 void bill(string p,string nani,string tel);
+//delete_file(const std::string& filename,const std::string& name)
+//delete_node(const std::string name, LL& ll)
 
 int menu()
 {
@@ -85,9 +88,9 @@ void decide(char c)
             cin >> person;
             cout << "Number : ";
             cin >> contact;
-            delete_file("test_dog.txt", name);
-            delete_node(name,ll);
             bill(person,name,contact);
+            delete_file("test_cat.txt", name);
+            //delete_node(name,ll);
             cout<<"Reserve cat done!"<<"\n"; //delete cat ที่จอง
         }
     }
@@ -108,6 +111,8 @@ void decide(char c)
             cout << "Number : ";
             cin >> contact;
             bill(person,name,contact);
+            delete_file("test_dog.txt", name);
+            //delete_node(name,ll);
             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
         } 
     }

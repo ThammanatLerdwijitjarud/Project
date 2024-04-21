@@ -1,13 +1,18 @@
+#ifndef ADD_ON_FUNC_H
+#define ADD_ON_FUNC_H
 #include "LL.h"
+#include <string>
+
+using namespace std;
 
 void create_cat_ll(LL &ll);
 void create_dog_ll(LL &ll);
 void create_ll(LL &ll);
 void delete_node(string name, LL& ll);
-void delete_file(const string& filename, const string& name);
+void delete_file(string& filename,string& name);
 
 void create_cat_ll(LL &ll) {
-    
+    ll.clear();
     Animal * temp_cat;
     string temp_name, temp_sex, temp_age, temp_weight;
 
@@ -40,7 +45,7 @@ void create_cat_ll(LL &ll) {
 }
 
 void create_dog_ll(LL &ll) {
-    
+    ll.clear();
     Animal * temp_dog;
     string temp_name, temp_sex, temp_age, temp_weight;
 
@@ -79,7 +84,8 @@ void create_ll(LL &ll) {
 }
 
 
-void delete_node(string name, LL& ll) {
+void delete_node(const std::string name, LL& ll) {
+    ll.clear();
     Animal *current = ll.get_hol();
     Animal *prev = NULL;
 
@@ -101,7 +107,7 @@ void delete_node(string name, LL& ll) {
 
 //delete until \n
 
-void delete_file(const string& filename, const string& name) {
+void delete_file(const std::string& filename,const std::string& name) {
     ifstream inFile(filename);
 
     if (!inFile.is_open()) {
@@ -127,3 +133,5 @@ void delete_file(const string& filename, const string& name) {
     remove(filename.c_str());
     rename("temp.txt", filename.c_str());
 }
+
+#endif
