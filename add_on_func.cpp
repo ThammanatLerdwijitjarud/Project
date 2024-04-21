@@ -1,8 +1,15 @@
+#ifndef muperson_h
+#define muperson_h
 #include<iostream>
 #include<fstream>
 #include<sstream>
+#include <iomanip>
+#include "pic.cpp"
+#include "LL.h"
+
 
 using namespace std;
+void bill(string p,string nani,string tel);
 
 int menu()
 {
@@ -39,6 +46,7 @@ void guide(char c)
     }
     else
     {
+        
         cout<<"---------------------"<<"\n";
         cout<<"| Guideline for dog |"<<"\n";
         cout<<"---------------------"<<"\n";
@@ -54,13 +62,15 @@ void guide(char c)
             }
             myfile.close();
         }
+        doghome();
     }
 }
 
 void decide(char c)
 {
-    string name;
+    string name,person,contact;
     char con;
+    LL ll;
     if(c=='c')
     {
         cout<<"\n";
@@ -72,6 +82,14 @@ void decide(char c)
         cin>>con;
         if(con=='y' || con=='Y')
         {
+            cout << "please enter your information"<<endl;
+            cout << "Name : ";
+            cin >> person;
+            cout << "Number : ";
+            cin >> contact;
+            delete_file("test_dog.txt", name);
+            delete_node(name,ll);
+            bill(person,name,contact);
             cout<<"Reserve cat done!"<<"\n"; //delete cat ที่จอง
         }
     }
@@ -86,9 +104,49 @@ void decide(char c)
         cin>>con;
         if(con=='y' || con=='Y')
         {
+                cout << "please enter your information"<<endl;
+            cout << "Name : ";
+            cin >> person;
+            cout << "Number : ";
+            cin >> contact;
+            bill(person,name,contact);
             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
         } 
     }
 }
 
+void bill(string p,string nani,string tel)
+{
+    
+    cout <<" ____________________________________________________________________" << endl;
+    cout <<"/\\                                                                   \\"<<endl;
+    cout <<"\\_|        /\\          /\\          /\\          /\\          /\\        |"<<endl;
+    cout <<"  |     /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\     |"<<endl;
+    cout <<"  |  /\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\  |"<<endl;
+    cout <<"  | //\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\ |"<<endl;
+    cout <<"  | \\\\//\\/           ,                                          \\\\// |"<<endl;
+    cout <<"  |  \\/          /\\^/'\\                                          \\/  |"<<endl;
+    cout <<"  |  /\\         | \\/   |     ____________________                /\\  |"<<endl;
+    cout <<"  | //\\\\        | |    |    ("<<setw(20)<<nani<<   ")              //\\\\ |"<<endl;
+    cout <<"  | \\\\//        \\ \\    /    ( (=@.@=)  ₍˄·͈༝·͈˄₎◞ ̑̑))    _ _       \\\\// |"<<endl;
+    cout <<"  |  \\/          '\\\\//'     ("<<setw(20)<<p<<   ")  _{ ' }_      \\/  |"<<endl;
+    cout <<"  |  /\\            ||       ("<<setw(20)<<tel<<   ") { '.!.' }     /\\  |" <<endl;
+    cout <<"  | //\\\\           ||       (____________________) ',_/Y\\_,'    //\\\\ |"<<endl;
+    cout <<"  | \\\\//           ||  .                             {_,_}      \\\\// |"<<endl;
+    cout <<"  |  \\/            ||  |\\            0                 |         \\/  |"<<endl;
+    cout <<"  |  /\\        |\\  ||  | |                           (\\|  /)     /\\  |"<<endl;
+    cout <<"  | //\\\\       | | || / /                             \\| //     //\\\\ |"<<endl;
+    cout <<"  | \\\\//        \\ \\||/ /                               |//      \\\\// |"<<endl;
+    cout <<"  |  \\/          '\\\\//'    \\   \\./   \\\\   \\./   \\  \\\\  |/  /     \\/  |"<<endl;
+    cout <<"  |  /\\        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     /\\  |"<<endl;
+    cout <<"  | //\\\\/\\                                                    /\\//\\\\ |"<<endl;
+    cout <<"  | \\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\// | "<<endl;
+    cout <<"  |  \\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/  |"<<endl;
+    cout <<"  |     \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/     |"<<endl;
+    cout <<"  |        \\/          \\/          \\/          \\/          \\/        |"<<endl;
+    cout <<"  |  ________________________________________________________________|__"<<endl;
+    cout <<"  \\_/__________________________________________________________________/"<<endl;
 
+}
+
+#endif
