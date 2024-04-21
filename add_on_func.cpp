@@ -1,12 +1,10 @@
-#ifndef muperson_h
-#define muperson_h
 #include<iostream>
 #include<fstream>
 #include<sstream>
-#include <iomanip>
-#include "pic.cpp"
-#include "LL.h"
-
+#include<iomanip>
+#include"pic.cpp"
+#include"p_file.h"
+// #include "delete.cpp"
 
 using namespace std;
 void bill(string p,string nani,string tel);
@@ -148,5 +146,3 @@ void bill(string p,string nani,string tel)
     cout <<"  \\_/__________________________________________________________________/"<<endl;
 
 }
-
-#endif

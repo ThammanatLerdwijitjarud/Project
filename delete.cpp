@@ -52,16 +52,16 @@ void delete_node(string name, LL& ll) {
         current = current->move_next();
     }
 }
-int main() {
-    string name;
-    LL ll;
+// int main() {
+//     string name;
+//     LL ll;
 
-    cin >> name;
-    delete_file("test_cat.txt", name);
-    delete_file("test_dog.txt", name);
-    delete_node(name,ll);
+//     cin >> name;
+//     delete_file("test_cat.txt", name);
+//     delete_file("test_dog.txt", name);
+//     delete_node(name,ll);
 
-    cout << name << "have been deleted from the files." << endl;
+//     cout << name << "have been deleted from the files." << endl;
 
-    return 0;
-}
+//     return 0;
+// }

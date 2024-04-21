@@ -1,25 +1,25 @@
-#include "NODE.h"
+#include"NODE.h"
 #include"cat.h"
 #include"dog.h"
 class LL : public Animal {
 private:
-    Animal *hol = NULL;
-    cat *c_hol = NULL;
-    dog *d_hol = NULL;
-    int size;
-    friend void delete_cat_ll(LL &ll, Animal *n);
-    friend void delete_dog_ll(LL &ll, Animal *n);
-    friend void delete_ll(LL &ll);
+     Animal *hol = NULL;
+     cat *c_hol = NULL;
+     dog *d_hol = NULL;
+     int size;
+     friend void delete_cat_ll(LL &ll, Animal *n);
+     friend void delete_dog_ll(LL &ll, Animal *n);
+     friend void delete_ll(LL &ll);
 public:
-    void add_node(Animal*&);
+     void add_node(Animal*&);
 //     void add_node(cat*&);
 //     void add_node(dog*&);
-    void show_all(char);
-    void delete_node(string name);
-    void delete_node(Animal*&);
-    int d_size();
-    Animal* get_hol() const { return hol; }
-    int get_size() const { return size; }
+     void show_all(char);
+     void delete_node(string name);
+     void delete_node(Animal*&);
+     int d_size();
+     Animal* get_hol() const { return hol; }
+     int get_size() const { return size; }
      void set_hol(Animal *new_hol) { hol = new_hol; }
     
     ~LL();

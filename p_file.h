@@ -1,5 +1,11 @@
 #include "LL.h"
 
+void create_cat_ll(LL &ll);
+void create_dog_ll(LL &ll);
+void create_ll(LL &ll);
+void delete_node(string name, LL& ll);
+void delete_file(const string& filename, const string& name);
+
 void create_cat_ll(LL &ll) {
     
     Animal * temp_cat;
@@ -93,10 +99,6 @@ void delete_node(string name, LL& ll) {
     }
 }
 
-
-
-
-
 //delete until \n
 
 void delete_file(const string& filename, const string& name) {
@@ -125,4 +127,3 @@ void delete_file(const string& filename, const string& name) {
     remove(filename.c_str());
     rename("temp.txt", filename.c_str());
 }
-

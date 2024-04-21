@@ -3,7 +3,7 @@
 #include<sstream>
 #include"donation.cpp"
 #include"add_on_func.cpp"
-#include"p_file.h"
+// #include"p_file.h"
 using namespace std;
 
 void donate();
