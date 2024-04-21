@@ -71,3 +71,66 @@ void create_ll(LL &ll) {
     create_cat_ll(ll);
     create_dog_ll(ll);
 }
+
+void delete_cat_ll(LL &ll, Animal *n) {
+    Animal *temp_cat = ll.c_hol;
+    Animal *pre_cat = NULL;
+
+    while (temp_cat != NULL) {
+        if (temp_cat == n) {
+            if (pre_cat == NULL) { // If n is the head of the linked list
+                ll.c_hol = temp_cat->move_next();
+                delete temp_cat;
+                ll.d_size(); // Decrease size
+                temp_cat = ll.c_hol;
+            } else {
+                pre_cat->set_next(temp_cat->move_next());
+                delete temp_cat;
+                ll.d_size(); // Decrease size
+                temp_cat = pre_cat->move_next();
+            }
+            // Exit loop after deleting the node
+            break;
+        } else {
+            pre_cat = temp_cat;
+            temp_cat = temp_cat->move_next();
+        }
+    }
+}
+
+
+// void delete_cat_ll(LL &ll,Animal)
+// {
+//     Animal *temp_cat = ll.c_hol;
+//     Animal *pre_cat = NULL;
+
+
+//     if(temp_cat!=NULL && (temp_cat==))
+//     {
+//         if(temp_cat->move_next() != NULL) {
+//             c_hol = temp_cat->move_next();
+//             delete temp_cat;
+//             size--;
+//         }
+//         return ;
+//     }
+//     while(temp_cat!=NULL && temp_cat->move_next() != NULL && (temp_cat!=n))
+//     {
+//         pre_cat = temp_cat;
+//         temp_cat = temp_cat->move_next();
+//     }
+//     if(temp_cat==n && temp_cat->move_next() != NULL)
+//     {
+//         pre_cat->set_next(temp_cat->move_next());
+//         delete temp_cat;
+//         size--;
+//     }
+    
+// }
+
+void delete_ll(LL &ll){
+    delete_cat_ll(ll,ll.c_hol);
+    //delete_dog_ll(ll);
+}
+
+//delete until \n

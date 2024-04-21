@@ -7,12 +7,16 @@ private:
     cat *c_hol = NULL;
     dog *d_hol = NULL;
     int size;
+    friend void delete_cat_ll(LL &ll, Animal *n);
+    friend void delete_dog_ll(LL &ll, Animal *n);
+    friend void delete_ll(LL &ll);
 public:
     void add_node(Animal*&);
 //     void add_node(cat*&);
 //     void add_node(dog*&);
     void show_all(char);
     void delete_node(Animal*&);
+    int d_size();
     
     ~LL();
     LL();
@@ -151,3 +155,10 @@ void LL::delete_node(Animal *&n)
      }
     
 }
+int LL::d_size()
+{
+     size--;
+     return size;
+}
+
+
