@@ -20,6 +20,8 @@ int main () {
         if(i==1)
         {
             create_cat_ll(L_cat);
+
+            L_cat.set_hol(L_cat.merge_sort((L_cat.get_hol())));
             
             L_cat.show_all('c');
             decide('c');
@@ -29,6 +31,8 @@ int main () {
         else if(i==2)
         {
             create_dog_ll(L_dog);
+
+            L_dog.set_hol(L_dog.merge_sort((L_dog.get_hol())));
         
             L_dog.show_all('d');
             decide('d');

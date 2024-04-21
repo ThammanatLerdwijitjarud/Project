@@ -21,6 +21,10 @@ class Animal {
         void insert(Animal*&);
         void set_next(Animal *);
         void delete_node();
+
+        Animal *merge(Animal *a, Animal *b);
+        Animal *mid_point(Animal *head);
+        Animal* merge_sort(Animal *head);
 };
 
 Animal::Animal(string n, string g, string a, int w)
@@ -75,3 +79,73 @@ void Animal::set_next(Animal *n) {
     this->next=n;
 }
 
+Animal * Animal::merge(Animal *a, Animal *b) {
+    // base case
+    if(a == NULL)
+        return b;
+    if(b == NULL)
+        return a;
+ 
+    // recursive case
+    // take a head pointer
+    Animal *c;
+ 
+    if(a->name < b->name)
+    {
+        c = a;
+        c->next = merge(a->next, b);
+    }
+    else
+    {
+        c = b;
+        c->next = merge(a, b->next);
+    }
+ 
+    return c;
+}
+Animal * Animal::mid_point(Animal *head) {
+    // base case
+    if(head == NULL || head->next == NULL)
+        return head;
+ 
+    // recursive case
+    Animal *fast = head;
+    Animal *slow = head;
+ 
+    while(fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next;
+ 
+        if(fast->next == NULL)
+            break;
+ 
+        fast = fast->next;
+        slow = slow->next;
+    }
+ 
+    return slow;
+}
+Animal * Animal::merge_sort(Animal *head) {
+     // base case
+    if(head == NULL || head->next == NULL)
+        return head;
+ 
+    // recursive case
+    // Step 1: divide the linked list into
+    // two equal linked lists
+    Animal *mid = mid_point(head);
+    Animal *a = head;
+    Animal *b = mid->next;
+ 
+    mid->next = NULL;
+ 
+    // Step 2: recursively sort the smaller
+    // linked lists
+    a = merge_sort(a);
+    b = merge_sort(b);
+ 
+    // Step 3: merge the sorted linked lists
+    Animal *c = merge(a, b);
+ 
+    return c;
+}
