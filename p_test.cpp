@@ -12,6 +12,7 @@ int main () {
     LL L_cat, L_dog;
     int i;
     char choice;
+    string name;
     while(1)
     {
         i=menu();
@@ -22,6 +23,7 @@ int main () {
             
             L_cat.show_all('c');
             decide('c');
+            
             
         }
         else if(i==2)

@@ -15,8 +15,12 @@ public:
 //     void add_node(cat*&);
 //     void add_node(dog*&);
     void show_all(char);
+    void delete_node(string name);
     void delete_node(Animal*&);
     int d_size();
+    Animal* get_hol() const { return hol; }
+    int get_size() const { return size; }
+     void set_hol(Animal *new_hol) { hol = new_hol; }
     
     ~LL();
     LL();
@@ -128,33 +132,33 @@ void LL::add_node(Animal *&A){
 
 // }
 
-void LL::delete_node(Animal *&n)
-{
-     Animal *temp = hol;
-     Animal *pre = NULL;
+// void LL::delete_node(Animal *&n)
+// {
+//      Animal *temp = hol;
+//      Animal *pre = NULL;
 
-     if(temp!=NULL && (temp==n))
-     {
-          if(temp->move_next() != NULL) {
-               hol = temp->move_next();
-               delete temp;
-               size--;
-          }
-          return ;
-     }
-     while(temp!=NULL && temp->move_next() != NULL && (temp!=n))
-     {
-          pre = temp;
-          temp = temp->move_next();
-     }
-     if(temp==n && temp->move_next() != NULL)
-     {
-          pre->set_next(temp->move_next());
-          delete temp;
-          size--;
-     }
+//      if(temp!=NULL && (temp==n))
+//      {
+//           if(temp->move_next() != NULL) {
+//                hol = temp->move_next();
+//                delete temp;
+//                size--;
+//           }
+//           return ;
+//      }
+//      while(temp!=NULL && temp->move_next() != NULL && (temp!=n))
+//      {
+//           pre = temp;
+//           temp = temp->move_next();
+//      }
+//      if(temp==n && temp->move_next() != NULL)
+//      {
+//           pre->set_next(temp->move_next());
+//           delete temp;
+//           size--;
+//      }
     
-}
+// }
 int LL::d_size()
 {
      size--;
