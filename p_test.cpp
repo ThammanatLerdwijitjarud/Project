@@ -26,6 +26,8 @@ int main () {
             
             L_cat.show_all('c');
             decide(L_cat, 'c');
+
+            system("clear");
             
         }
         else if(i==2)

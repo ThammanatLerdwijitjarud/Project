@@ -83,7 +83,7 @@ void decide(LL & ll, char c)
             cout << "please enter your information"<<endl;
             cout << "Name : ";
             cin >> person;
-            cout << "Number : ";
+            cout << "Phone number : ";
             cin >> contact;
             bill(person,name,contact);
             delete_node(name,ll);
@@ -104,7 +104,7 @@ void decide(LL & ll, char c)
             cout << "please enter your information"<<endl;
             cout << "Name : ";
             cin >> person;
-            cout << "Number : ";
+            cout << "Phone number : ";
             cin >> contact;
             bill(person,name,contact);
             delete_node(name,ll);

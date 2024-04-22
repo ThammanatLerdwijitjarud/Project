@@ -77,6 +77,8 @@ donation::~donation(){
     head = NULL;
 }
 
+// อันนี้ห้ามลบ
+
 void donate(){
     donation donation;
 
