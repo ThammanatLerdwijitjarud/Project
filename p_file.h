@@ -12,7 +12,7 @@ void delete_node(string name, LL& ll);
 void delete_file(string& filename,string& name);
 
 void create_cat_ll(LL &ll) {
-    ll.clear();
+    
     Animal * temp_cat;
     string temp_name, temp_sex, temp_age, temp_weight;
 
@@ -41,11 +41,14 @@ void create_cat_ll(LL &ll) {
         }
         myfile.close();
     }
+    else {
+        cout << "Couldn't open file";
+    }
 
 }
 
 void create_dog_ll(LL &ll) {
-    ll.clear();
+    
     Animal * temp_dog;
     string temp_name, temp_sex, temp_age, temp_weight;
 
@@ -74,6 +77,9 @@ void create_dog_ll(LL &ll) {
         }
         myfile.close();
     }
+    else {
+        cout << "Couldn't open file";
+    }
 
 }
 
@@ -83,9 +89,8 @@ void create_ll(LL &ll) {
     create_dog_ll(ll);
 }
 
-
 void delete_node(const std::string name, LL& ll) {
-    ll.clear();
+
     Animal *current = ll.get_hol();
     Animal *prev = NULL;
 
@@ -106,6 +111,8 @@ void delete_node(const std::string name, LL& ll) {
 }
 
 //delete until \n
+
+// update file?
 
 void delete_file(const std::string& filename,const std::string& name) {
     ifstream inFile(filename);

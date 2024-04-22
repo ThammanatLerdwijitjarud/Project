@@ -2,15 +2,13 @@
 #include<fstream>
 #include<sstream>
 #include<iomanip>
-#include"pic.cpp"
 #include"p_file.h"
 
-// #include "delete.cpp"
-
-
+int menu();
+void guide(char c);
+void decide(char c);
 void bill(string p,string nani,string tel);
-//delete_file(const std::string& filename,const std::string& name)
-//delete_node(const std::string name, LL& ll)
+void doghome();
 
 int menu()
 {
@@ -67,11 +65,10 @@ void guide(char c)
     }
 }
 
-void decide(char c)
+void decide(LL & ll, char c)
 {
     string name,person,contact;
     char con;
-    LL ll;
     if(c=='c')
     {
         cout<<"\n";
@@ -89,8 +86,7 @@ void decide(char c)
             cout << "Number : ";
             cin >> contact;
             bill(person,name,contact);
-            delete_file("test_cat.txt", name);
-            //delete_node(name,ll);
+            delete_node(name,ll);
             cout<<"Reserve cat done!"<<"\n"; //delete cat ที่จอง
         }
     }
@@ -105,14 +101,13 @@ void decide(char c)
         cin>>con;
         if(con=='y' || con=='Y')
         {
-                cout << "please enter your information"<<endl;
+            cout << "please enter your information"<<endl;
             cout << "Name : ";
             cin >> person;
             cout << "Number : ";
             cin >> contact;
             bill(person,name,contact);
-            delete_file("test_dog.txt", name);
-            //delete_node(name,ll);
+            delete_node(name,ll);
             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
         } 
     }
@@ -150,4 +145,21 @@ void bill(string p,string nani,string tel)
     cout <<"  |  ________________________________________________________________|__"<<endl;
     cout <<"  \\_/__________________________________________________________________/"<<endl;
 
+}
+
+void doghome() {
+    cout << "                                 _            " << endl;
+    cout << "                               ,/ \\,         " << endl;
+    cout << "                             .//`_`\\\\,      " << endl;
+    cout << "                           ,//`____-`\\\\,  " << endl;
+    cout << "                       ,  //`[_POPPY_]`\\\\, " << endl;
+    cout << "                      , //`=  ==  __-  _`\\\\," << endl;
+    cout << "                      //|__=  __- == _  __|\\\\" << endl;
+    cout << "                     `  |  __ .-----.  _  | ` " << endl;
+    cout << "                        | - _/       \\-   |  " << endl;
+    cout << "                        |__  | .-\"-. | __=|  " << endl;
+    cout << "                        |  _=|/))  (\\|    |  " << endl;
+    cout << "                        |-__ (/ . . \\) -__|  " << endl;
+    cout << "                        |___ /`\\_Y_/`\\____|  " << endl;
+    cout << "                            \\)8===8(/       " << endl;
 }

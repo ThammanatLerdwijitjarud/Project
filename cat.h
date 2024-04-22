@@ -5,6 +5,7 @@ private :
 public:
     cat(string,string,string,int);
     int get_size_cat();
+    void home();
 
     // cat * move_next();
     // void insert(cat*&);

@@ -5,6 +5,7 @@ private:
 public:
     dog(string,string,string,int);
     int get_size_dog();
+    void home();
 
     // dog * move_next();
     // void insert(dog*&);

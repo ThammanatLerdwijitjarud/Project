@@ -12,11 +12,11 @@ private:
      friend void delete_ll(LL &ll);
 public:
      void add_node(Animal*&);
-//     void add_node(cat*&);
-//     void add_node(dog*&);
+     // void add_node(cat*&);
+     // void add_node(dog*&);
      void show_all(char);
-     void delete_node(string name);
-     void delete_node(Animal*&);
+     // void delete_node(string name);
+     // void delete_node(Animal*&);
      int d_size();
      Animal* get_hol() const { return hol; }
      int get_size() const { return size; }
@@ -43,34 +43,6 @@ LL::~LL(){
           delete temp;
      }
 
-     // int i;
-     // Animal *temp;
-     // Animal *t=hol;
-     // while(t != NULL)
-     // {
-     //      temp = t;
-     //      t = t->move_next();
-     //      delete temp;
-     // }
-     // cat *c_temp;
-     // cat *c_t = c_hol;
-     // while(c_t != NULL)
-     // {
-     //      // cout << "a" << endl;
-     //      c_temp = c_t;
-     //      // c_temp->show_node();
-     //      c_t = c_t->move_next();
-     //      delete c_temp;
-     // }
-     // dog *d_temp;
-     // dog *d_t = d_hol;
-     // while(d_t!=NULL)
-     // {
-     //      d_temp = d_t;
-     //      d_t = d_t->move_next();
-     //      delete d_temp;
-     // }
-     // size=0;   
 }
 
 void LL::show_all(char a){
@@ -83,27 +55,6 @@ void LL::show_all(char a){
           t->show_node();
           t = t->move_next();
      }
-
-     // if(a=='c')
-     // {
-     //      cat* t = c_hol;
-     //      int i;
-     //      for(i=0;i<size;i++){
-     //           t->show_node();
-     //           t=t->move_next();
-     //      }
-     //      //cout<<"--------------------------"<<endl;
-     // }
-     // else
-     // {
-     //      dog* t = d_hol;
-     //      int i;
-     //      for(i=0;i<size;i++){
-     //           t->show_node();
-     //           t=t->move_next();
-     //      }
-     //      //cout<<"--------------------------"<<endl;
-     // }
      
 }
 
@@ -115,23 +66,6 @@ void LL::add_node(Animal *&A){
      size++;
 
 }
-
-// void LL::add_node(cat *&A){
-
-//           c_hol->insert(A);
-//           c_hol=A;
-
-//        size++;
-
-// }
-// void LL::add_node(dog *&A){
-
-//           d_hol->insert(A);
-//           d_hol=A;
-
-//        size++;
-
-// }
 
 // void LL::delete_node(Animal *&n)
 // {
@@ -166,21 +100,17 @@ int LL::d_size()
      return size;
 }
 
-void LL::clear() {
-    Animal *current = hol;
-    Animal *nextNode;
+// void LL::clear() {
+//     Animal *current = hol;
+//     Animal *nextNode;
 
-    while (current != NULL) {
-        nextNode = current->move_next();
-        delete current;
-        current = nextNode;
-    }
+//     while (current != NULL) {
+//         nextNode = current->move_next();
+//         delete current;
+//         current = nextNode;
+//     }
 
-    // กำหนด hol เป็น NULL เพื่อบ่งชี้ว่าลิงก์ลิสต์ว่างเปล่า
-    hol = NULL;
-    size = 0; // รีเซ็ตขนาดลิงก์ลิสต์เป็น 0
-}
-
-
-
-
+//     // กำหนด hol เป็น NULL เพื่อบ่งชี้ว่าลิงก์ลิสต์ว่างเปล่า
+//     hol = NULL;
+//     size = 0; // รีเซ็ตขนาดลิงก์ลิสต์เป็น 0
+// }

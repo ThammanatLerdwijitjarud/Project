@@ -8,9 +8,6 @@ class Animal {
         int weight;
         Animal* next;
     public:
-        // string find_color(string); //use sorting
-        // string set_color(string);
-        // string get_color();
         Animal(string = "TBD", string = "TBD", string = "1 years old", int = 5);
         string get_name();
         string get_gender();
@@ -20,7 +17,6 @@ class Animal {
         Animal* move_next();
         void insert(Animal*&);
         void set_next(Animal *);
-        void delete_node();
 
         Animal *merge(Animal *a, Animal *b);
         Animal *mid_point(Animal *head);
