@@ -61,7 +61,7 @@ void guide(char c)
             }
             myfile.close();
         }
-        doghome();
+        // doghome();
     }
 }
 
@@ -128,7 +128,7 @@ void bill(string p,string nani,string tel)
     cout <<"  | //\\\\        | |    |    ("<<setw(20)<<nani<<   ")              //\\\\ |"<<endl;
     cout <<"  | \\\\//        \\ \\    /    ( (=@.@=)  ₍˄·͈༝·͈˄₎◞ ̑̑))    _ _       \\\\// |"<<endl;
     cout <<"  |  \\/          '\\\\//'     ("<<setw(20)<<p<<   ")  _{ ' }_      \\/  |"<<endl;
-    cout <<"  |  /\\            ||       ("<<setw(20)<<tel<<   ") { '.!.' }     /\\  |" <<endl;
+    cout <<"  |  /\\            ||       (Tel."<<setw(16)<<tel<<   ") { '.!.' }     /\\  |" <<endl;
     cout <<"  | //\\\\           ||       (____________________) ',_/Y\\_,'    //\\\\ |"<<endl;
     cout <<"  | \\\\//           ||  .                             {_,_}      \\\\// |"<<endl;
     cout <<"  |  \\/            ||  |\\            0                 |         \\/  |"<<endl;
@@ -147,19 +147,19 @@ void bill(string p,string nani,string tel)
 
 }
 
-void doghome() {
-    cout << "                                 _            " << endl;
-    cout << "                               ,/ \\,         " << endl;
-    cout << "                             .//`_`\\\\,      " << endl;
-    cout << "                           ,//`____-`\\\\,  " << endl;
-    cout << "                       ,  //`[_POPPY_]`\\\\, " << endl;
-    cout << "                      , //`=  ==  __-  _`\\\\," << endl;
-    cout << "                      //|__=  __- == _  __|\\\\" << endl;
-    cout << "                     `  |  __ .-----.  _  | ` " << endl;
-    cout << "                        | - _/       \\-   |  " << endl;
-    cout << "                        |__  | .-\"-. | __=|  " << endl;
-    cout << "                        |  _=|/))  (\\|    |  " << endl;
-    cout << "                        |-__ (/ . . \\) -__|  " << endl;
-    cout << "                        |___ /`\\_Y_/`\\____|  " << endl;
-    cout << "                            \\)8===8(/       " << endl;
-}
+// void doghome() {
+//     cout << "                                 _            " << endl;
+//     cout << "                               ,/ \\,         " << endl;
+//     cout << "                             .//`_`\\\\,      " << endl;
+//     cout << "                           ,//`____-`\\\\,  " << endl;
+//     cout << "                       ,  //`[_POPPY_]`\\\\, " << endl;
+//     cout << "                      , //`=  ==  __-  _`\\\\," << endl;
+//     cout << "                      //|__=  __- == _  __|\\\\" << endl;
+//     cout << "                     `  |  __ .-----.  _  | ` " << endl;
+//     cout << "                        | - _/       \\-   |  " << endl;
+//     cout << "                        |__  | .-\"-. | __=|  " << endl;
+//     cout << "                        |  _=|/))  (\\|    |  " << endl;
+//     cout << "                        |-__ (/ . . \\) -__|  " << endl;
+//     cout << "                        |___ /`\\_Y_/`\\____|  " << endl;
+//     cout << "                            \\)8===8(/       " << endl;
+// }

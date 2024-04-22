@@ -21,7 +21,13 @@ class Animal {
         Animal *merge(Animal *a, Animal *b);
         Animal *mid_point(Animal *head);
         Animal* merge_sort(Animal *head);
+        virtual void home();
 };
+
+void Animal::home()
+{
+    cout<<"done2"<<endl;
+}
 
 Animal::Animal(string n, string g, string a, int w)
 {

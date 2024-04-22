@@ -23,6 +23,23 @@ int cat::get_size_cat()
     return no_cat;
 }
 
+void cat::home() {
+    cout << "                                 _            " << endl;
+    cout << "                               ,/ \\,         " << endl;
+    cout << "                             .//`_`\\\\,      " << endl;
+    cout << "                           ,//`____-`\\\\,  " << endl;
+    cout << "                       ,  //`[_KITTY_]`\\\\, " << endl;
+    cout << "                      , //`=  ==  __-  _`\\\\," << endl;
+    cout << "                      //|__=  __- == _  __|\\\\" << endl;
+    cout << "                     `  |  __ .-----.  _  | ` " << endl;
+    cout << "                        | - _/       \\-   |  " << endl;
+    cout << "                        |__  | .-\"-. | __=|  " << endl;
+    cout << "                        |  _=|/))  (\\|    |  " << endl;
+    cout << "                        |-__ (/ . . \\) -__|  " << endl;
+    cout << "                        |___ /`\\_Y_/`\\____|  " << endl;
+    cout << "                            \\)8===8(/       " << endl;
+}
+
 // cat* cat::move_next()
 // {
 //     return c_next;
@@ -35,3 +52,4 @@ int cat::get_size_cat()
 // void cat::set_next(cat *n) {
 //     this->c_next=n;
 // }
+

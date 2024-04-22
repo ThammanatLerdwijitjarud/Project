@@ -11,6 +11,9 @@ int main () {
 
     create_cat_ll(L_cat);
     create_dog_ll(L_dog);
+    L_cat.home();
+    cout<<"done"<<endl;
+    L_dog.home();
 
     int i;
     char choice;
