@@ -3,7 +3,7 @@ private :
     static int no_cat;
     // cat * c_next;
 public:
-    cat(string,string,string,int);
+    cat(string,string,string,int,string);
     int get_size_cat();
     void home();
 
@@ -14,7 +14,7 @@ public:
 
 int cat::no_cat=0;
 
-cat::cat(string n,string g, string a ,int w) : Animal(n,g,a,w) {
+cat::cat(string n,string g, string a ,int w, string c) : Animal(n,g,a,w,c) {
     no_cat++;
 }
 

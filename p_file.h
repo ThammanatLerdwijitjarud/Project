@@ -14,7 +14,7 @@ void delete_file(string& filename,string& name);
 void create_cat_ll(LL &ll) {
     
     Animal * temp_cat;
-    string temp_name, temp_sex, temp_age, temp_weight;
+    string temp_name, temp_sex, temp_age, temp_weight, temp_color;
 
     fstream myfile;
     
@@ -30,9 +30,10 @@ void create_cat_ll(LL &ll) {
             // cout<<temp_sex<<endl;
             getline(X, temp_age, ',');
             // cout<<temp_age<<endl;
-            getline(X, temp_weight, '\n');
+            getline(X, temp_weight, ',');
             // cout<<temp_weight<<endl;
-            temp_cat = new cat(temp_name, temp_sex, temp_age, stoi(temp_weight));
+            getline(X, temp_color, '\n');
+            temp_cat = new cat(temp_name, temp_sex, temp_age, stoi(temp_weight), temp_color);
             // temp_cat->show_node();
             ll.add_node(temp_cat);
             // while(getline(X, temp, ',')) {
@@ -50,7 +51,7 @@ void create_cat_ll(LL &ll) {
 void create_dog_ll(LL &ll) {
     
     Animal * temp_dog;
-    string temp_name, temp_sex, temp_age, temp_weight;
+    string temp_name, temp_sex, temp_age, temp_weight, temp_color;
 
     fstream myfile;
     
@@ -66,9 +67,11 @@ void create_dog_ll(LL &ll) {
             // cout<<temp_sex<<endl;
             getline(X, temp_age, ',');
             // cout<<temp_age<<endl;
-            getline(X, temp_weight, '\n');
+            getline(X, temp_weight, ',');
             // cout<<temp_weight<<endl;
-            temp_dog = new dog(temp_name, temp_sex, temp_age, stoi(temp_weight));
+             getline(X, temp_color, '\n');
+            //  cout<<temp_color<<endl;
+            temp_dog = new dog(temp_name, temp_sex, temp_age, stoi(temp_weight), temp_color);
             // temp_cat->show_node();
             ll.add_node(temp_dog);
             // while(getline(X, temp, ',')) {

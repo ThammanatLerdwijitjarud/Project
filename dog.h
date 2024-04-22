@@ -3,7 +3,7 @@ private:
     static int no_dog;
     // dog * d_next;
 public:
-    dog(string,string,string,int);
+    dog(string,string,string,int,string);
     int get_size_dog();
     void home();
 
@@ -14,7 +14,7 @@ public:
 
 int dog::no_dog=0;
 
-dog::dog(string n,string g, string a ,int w) : Animal(n,g,a,w)
+dog::dog(string n,string g, string a ,int w, string c) : Animal(n,g,a,w,c)
 {
     no_dog++;
 }

@@ -8,7 +8,7 @@ int menu();
 void guide(char c);
 void decide(char c);
 void bill(string p,string nani,string tel);
-void doghome();
+void sort_color(LL &ll);
 
 int menu()
 {
@@ -19,10 +19,15 @@ int menu()
     3. Donate
 Enter menu : )";
     cin>>i;
+    while(i<1 ||i>3) 
+    { 
+        cout<<"Please enter only 1-3: ";
+        cin>>i;
+    }
     return i;
 }
 
-void guide(char c)
+void guide(LL &ll,char c)
 {
     int g;
     if(c=='c')
@@ -42,6 +47,7 @@ void guide(char c)
             }
             myfile.close();
         }
+        ll.home();
     }
     else
     {
@@ -61,7 +67,7 @@ void guide(char c)
             }
             myfile.close();
         }
-        // doghome();
+        ll.home();
     }
 }
 
@@ -75,7 +81,7 @@ void decide(LL & ll, char c)
         cout<<R"(Which cat do you want to adopt ? Enter name : )";
         cin>>name;
         cout<<"\n";
-        guide('c');
+        guide(ll,'c');
         cout<<"Confirm (y/n) : ";
         cin>>con;
         if(con=='y' || con=='Y')
@@ -96,7 +102,7 @@ void decide(LL & ll, char c)
         cout<<R"(Which dog do you want to adopt ? Enter name : )";
         cin>>name;
         cout<<"\n";
-        guide('d'); 
+        guide(ll,'d'); 
         cout<<"Confirm (y/n) : ";
         cin>>con;
         if(con=='y' || con=='Y')
@@ -145,6 +151,28 @@ void bill(string p,string nani,string tel)
     cout <<"  |  ________________________________________________________________|__"<<endl;
     cout <<"  \\_/__________________________________________________________________/"<<endl;
 
+}
+
+void sort_color(LL &ll)
+{
+    Animal *a = ll.get_hol();
+    int i;
+    string col;
+    cout<< "Which color do you want ? : ";
+    cin>>col;
+   
+    while(a!=NULL)
+    {
+        if(col==a->get_color())
+        {
+            a->show_node();
+            // cout<<"sort-c1"<<endl;
+        }
+        // cout<<"sort-c2"<<endl;
+        a = a->move_next();  
+        
+    }
+    
 }
 
 // void doghome() {

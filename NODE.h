@@ -8,10 +8,11 @@ class Animal {
         int weight;
         Animal* next;
     public:
-        Animal(string = "TBD", string = "TBD", string = "1 years old", int = 5);
+        Animal(string = "TBD", string = "TBD", string = "1 years old", int = 5, string = "Col");
         string get_name();
         string get_gender();
         string get_age();
+        string get_color();
         int get_weight();
         void show_node();
         Animal* move_next();
@@ -29,12 +30,13 @@ void Animal::home()
     cout<<"done2"<<endl;
 }
 
-Animal::Animal(string n, string g, string a, int w)
+Animal::Animal(string n, string g, string a, int w, string c)
 {
     name = n;
     gender = g;
     age = a;
     weight = w;
+    color = c;
 }
 
 string Animal::get_name()
@@ -55,6 +57,11 @@ string Animal::get_age()
 int Animal::get_weight()
 {
     return weight;
+}
+
+string Animal::get_color()
+{
+    return color;
 }
 
 void Animal::show_node()

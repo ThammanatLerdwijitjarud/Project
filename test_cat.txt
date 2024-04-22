@@ -1,3 +1,4 @@
-Garfield,F,1 year old,5
-JoJo,F,1 month,2 
-Tiger,M,2 months,10
+Garfield,F,1 year old,5,orange
+JoJo,F,1 month,2,black
+Tiger,M,2 months,10,white
+Mali,M,8 month,20,white

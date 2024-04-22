@@ -11,9 +11,7 @@ int main () {
 
     create_cat_ll(L_cat);
     create_dog_ll(L_dog);
-    L_cat.home();
-    cout<<"done"<<endl;
-    L_dog.home();
+
 
     int i;
     char choice;
@@ -28,6 +26,7 @@ int main () {
             L_cat.set_hol(L_cat.merge_sort((L_cat.get_hol())));
             
             L_cat.show_all('c');
+            sort_color(L_cat);
             decide(L_cat, 'c');
 
             system("clear");
@@ -39,11 +38,16 @@ int main () {
             L_dog.set_hol(L_dog.merge_sort((L_dog.get_hol())));
         
             L_dog.show_all('d');
+            sort_color(L_dog);
             decide(L_dog, 'd');
+
+            system("clear");
         }
         else if(i==3)
         {
             donate();
+
+            system("clear");
         }
         cout<<"Do you want to do it again ? (y/n):  ";
         cin>>choice;
