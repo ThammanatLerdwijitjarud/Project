@@ -11,7 +11,9 @@ int main () {
 
     create_cat_ll(L_cat);
     create_dog_ll(L_dog);
+    //welcome();
 
+    system("clear");
 
     int i;
     char choice;

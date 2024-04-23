@@ -71,6 +71,7 @@ void Animal::show_node()
     cout<<"Gender : "<<get_gender()<<endl;
     cout<<"Age : "<<get_age()<<endl;
     cout<<"Weight : "<<get_weight()<<" kg"<<endl;
+    cout<<"Color : "<<get_color()<<endl;
 }
 
 void Animal::insert(Animal*& x) {
