@@ -1,3 +1,2 @@
 Garfield,F,1 year old,5,orange
-JoJo,F,1 month,2,black
-Tiger,M,2 months,10,white
+Tom,M,10 months,10,gray

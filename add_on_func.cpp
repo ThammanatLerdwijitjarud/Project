@@ -10,6 +10,7 @@ void decide(LL & ll, char c);
 void bill(string p,string nani,string tel);
 void sort_color(LL &ll);
 int check_word(const string& name, const string& filename);
+int check_word(string n,LL &ll);
 
 int menu()
 {
@@ -80,18 +81,17 @@ void decide(LL & ll, char c)
     int check = 0;
     if(c=='c')
     {
-        // cat_select(); ปริ้นรูป ชื่อไม่ตรง รี 0 / ตรง รี 1
+        // cat_select(); ปริ้นรูป
         sort_color(ll);
         do{
-            if(check==1)
+            cout<<"Which cat do you want to adopt ? Enter name : ";
+            cin>>name;
+            check = check_word(name,ll);
+            if(check==0)
             {
                 cout << "not found please enter again"<< endl;            
             }
-            cout<<"Which cat do you want to adopt ? Enter name : ";
-            cin>>name;
-            check = check_word(name,"test_cat.txt");
-            cout<<"check = "<<check<<endl;
-        } while(check==1);
+        } while(check==0);
             guide(ll,'c');
             cout<<"Confirm (y/n) : ";
             cin>>con;
@@ -113,15 +113,15 @@ void decide(LL & ll, char c)
         // dog_select(); ปริ้นรูป
         sort_color(ll);
         do{
-            if(check==1)
+            cout<<"Which dog do you want to adopt ? Enter name : ";
+            cin>>name;
+            check = check_word(name,ll);
+            if(check==0)
             {
                 cout << "not found please enter again" << endl;            
             }
-            cout<<"Which dog do you want to adopt ? Enter name : ";
-            cin>>name;
-            check = check_word(name,"test_dog.txt");
         }while(check==0);
-        guide(ll,'c');
+        guide(ll,'d');
         cout<<"Confirm (y/n) : ";
         cin>>con;
         if(con=='y' || con=='Y')
@@ -133,76 +133,27 @@ void decide(LL & ll, char c)
             cin >> contact;
             bill(person,name,contact);
             delete_node(name,ll);
-            cout<<"Reserve dog done!"<<"\n"; //delete cat ที่จอง
+            cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
         }
     }
 }
 
-//ลองดูอันนี้อีกที
-int check_word(const string& name, const string& filename) {
-    ifstream file(filename);
-    string read; //get string line by line
-    while (getline(file, read)) {
-        if (read.find(name) != string::npos) { //npos = if not found gonna ret; npos 
-            file.close();
-            return 1;
+int check_word(string n,LL &ll)
+{
+    Animal *a = ll.get_hol();
+    int check=0;
+
+    while(a!=NULL)
+    {
+        if(n==a->get_name())
+        {
+            check = 1; //เจอ
         }
+        a = a->move_next();     
     }
-    file.close();
-    return 0;
+    // cout<<"check = "<<check<<"\n";
+    return check;
 }
-
-// void decide(LL & ll, char c)
-// {
-//     string name,person,contact;
-//     char con;
-//     if(c=='c')
-//     {
-//         cout<<"\n";
-//         sort_color(ll);
-//         cout<<R"(Which cat do you want to adopt ? Enter name : )";
-//         cin>>name;
-//         cout<<"\n";
-//         guide(ll,'c');
-//         cout<<"Confirm (y/n) : ";
-//         cin>>con;
-//         if(con=='y' || con=='Y')
-//         {
-//             cout << "please enter your information"<<endl;
-//             cout << "Name : ";
-//             cin >> person;
-//             cout << "Phone number : ";
-//             cin >> contact;
-//             bill(person,name,contact);
-//             delete_node(name,ll);
-//             cout<<"Reserve cat done!"<<"\n"; //delete cat ที่จอง
-//         }
-//     }
-//     else
-//     {
-//         cout<<"\n";
-//         sort_color(ll);
-//         cout<<R"(Which dog do you want to adopt ? Enter name : )";
-//         cin>>name;
-//         cout<<"\n";
-//         guide(ll,'d'); 
-//         cout<<"Confirm (y/n) : ";
-//         cin>>con;
-//         if(con=='y' || con=='Y')
-//         {
-//             cout << "please enter your information"<<endl;
-//             cout << "Name : ";
-//             cin >> person;
-//             cout << "Phone number : ";
-//             cin >> contact;
-//             bill(person,name,contact);
-//             delete_node(name,ll);
-//             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
-//         } 
-//     }
-// }
-
-
 
 
 void bill(string p,string nani,string tel)
@@ -247,7 +198,7 @@ void sort_color(LL &ll)
     string col;
     cout<< "Which color do you want ? : ";
     cin>>col;
-   
+
     while(a!=NULL)
     {
         if(col==a->get_color())
