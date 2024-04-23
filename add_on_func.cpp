@@ -5,10 +5,11 @@
 #include"p_file.h"
 
 int menu();
-void guide(char c);
-void decide(char c);
+void guide(LL & ll, char c);
+void decide(LL & ll, char c);
 void bill(string p,string nani,string tel);
 void sort_color(LL &ll);
+int check_word(const string& name, const string& filename);
 
 int menu()
 {
@@ -26,6 +27,7 @@ Enter menu : )";
     }
     return i;
 }
+
 
 void guide(LL &ll,char c)
 {
@@ -75,12 +77,50 @@ void decide(LL & ll, char c)
 {
     string name,person,contact;
     char con;
+    int check = 0;
     if(c=='c')
     {
-        cout<<"\n";
-        cout<<R"(Which cat do you want to adopt ? Enter name : )";
-        cin>>name;
-        cout<<"\n";
+        // cat_select(); ปริ้นรูป ชื่อไม่ตรง รี 0 / ตรง รี 1
+        sort_color(ll);
+        do{
+            if(check==1)
+            {
+                cout << "not found please enter again"<< endl;            
+            }
+            cout<<"Which cat do you want to adopt ? Enter name : ";
+            cin>>name;
+            check = check_word(name,"test_cat.txt");
+            cout<<"check = "<<check<<endl;
+        } while(check==1);
+            guide(ll,'c');
+            cout<<"Confirm (y/n) : ";
+            cin>>con;
+            if(con=='y' || con=='Y')
+            {
+                cout << "please enter your information"<<endl;
+                cout << "Name : ";
+                cin >> person;
+                cout << "Phone number (0823456789) : ";
+                cin >> contact;
+                bill(person,name,contact);
+                delete_node(name,ll);
+                delete_file("test_cat.txt",name);
+                cout<<"Reserve cat done!"<<"\n";
+            }
+    }
+    else
+    {
+        // dog_select(); ปริ้นรูป
+        sort_color(ll);
+        do{
+            if(check==1)
+            {
+                cout << "not found please enter again" << endl;            
+            }
+            cout<<"Which dog do you want to adopt ? Enter name : ";
+            cin>>name;
+            check = check_word(name,"test_dog.txt");
+        }while(check==0);
         guide(ll,'c');
         cout<<"Confirm (y/n) : ";
         cin>>con;
@@ -93,34 +133,81 @@ void decide(LL & ll, char c)
             cin >> contact;
             bill(person,name,contact);
             delete_node(name,ll);
-            cout<<"Reserve cat done!"<<"\n"; //delete cat ที่จอง
+            cout<<"Reserve dog done!"<<"\n"; //delete cat ที่จอง
         }
-    }
-    else
-    {
-        cout<<"\n";
-        cout<<R"(Which dog do you want to adopt ? Enter name : )";
-        cin>>name;
-        cout<<"\n";
-        guide(ll,'d'); 
-        cout<<"Confirm (y/n) : ";
-        cin>>con;
-        if(con=='y' || con=='Y')
-        {
-            cout << "please enter your information"<<endl;
-            cout << "Name : ";
-            cin >> person;
-            cout << "Phone number : ";
-            cin >> contact;
-            bill(person,name,contact);
-            delete_node(name,ll);
-            cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
-        } 
     }
 }
 
+//ลองดูอันนี้อีกที
+int check_word(const string& name, const string& filename) {
+    ifstream file(filename);
+    string read; //get string line by line
+    while (getline(file, read)) {
+        if (read.find(name) != string::npos) { //npos = if not found gonna ret; npos 
+            file.close();
+            return 1;
+        }
+    }
+    file.close();
+    return 0;
+}
+
+// void decide(LL & ll, char c)
+// {
+//     string name,person,contact;
+//     char con;
+//     if(c=='c')
+//     {
+//         cout<<"\n";
+//         sort_color(ll);
+//         cout<<R"(Which cat do you want to adopt ? Enter name : )";
+//         cin>>name;
+//         cout<<"\n";
+//         guide(ll,'c');
+//         cout<<"Confirm (y/n) : ";
+//         cin>>con;
+//         if(con=='y' || con=='Y')
+//         {
+//             cout << "please enter your information"<<endl;
+//             cout << "Name : ";
+//             cin >> person;
+//             cout << "Phone number : ";
+//             cin >> contact;
+//             bill(person,name,contact);
+//             delete_node(name,ll);
+//             cout<<"Reserve cat done!"<<"\n"; //delete cat ที่จอง
+//         }
+//     }
+//     else
+//     {
+//         cout<<"\n";
+//         sort_color(ll);
+//         cout<<R"(Which dog do you want to adopt ? Enter name : )";
+//         cin>>name;
+//         cout<<"\n";
+//         guide(ll,'d'); 
+//         cout<<"Confirm (y/n) : ";
+//         cin>>con;
+//         if(con=='y' || con=='Y')
+//         {
+//             cout << "please enter your information"<<endl;
+//             cout << "Name : ";
+//             cin >> person;
+//             cout << "Phone number : ";
+//             cin >> contact;
+//             bill(person,name,contact);
+//             delete_node(name,ll);
+//             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
+//         } 
+//     }
+// }
+
+
+
+
 void bill(string p,string nani,string tel)
 {
+    cout<<"bill1"<<endl;
     
     cout <<" ____________________________________________________________________" << endl;
     cout <<"/\\                                                                   \\"<<endl;
@@ -156,7 +243,7 @@ void bill(string p,string nani,string tel)
 void sort_color(LL &ll)
 {
     Animal *a = ll.get_hol();
-    int i;
+    int i,flag=0;
     string col;
     cout<< "Which color do you want ? : ";
     cin>>col;
@@ -166,28 +253,18 @@ void sort_color(LL &ll)
         if(col==a->get_color())
         {
             a->show_node();
+            flag++;
             // cout<<"sort-c1"<<endl;
         }
         // cout<<"sort-c2"<<endl;
         a = a->move_next();  
         
     }
+    if(flag==0)
+    {
+        cout<<"We don't have that color, please enter color again."<<endl;
+        sort_color(ll);
+    }
     
 }
 
-// void doghome() {
-//     cout << "                                 _            " << endl;
-//     cout << "                               ,/ \\,         " << endl;
-//     cout << "                             .//`_`\\\\,      " << endl;
-//     cout << "                           ,//`____-`\\\\,  " << endl;
-//     cout << "                       ,  //`[_POPPY_]`\\\\, " << endl;
-//     cout << "                      , //`=  ==  __-  _`\\\\," << endl;
-//     cout << "                      //|__=  __- == _  __|\\\\" << endl;
-//     cout << "                     `  |  __ .-----.  _  | ` " << endl;
-//     cout << "                        | - _/       \\-   |  " << endl;
-//     cout << "                        |__  | .-\"-. | __=|  " << endl;
-//     cout << "                        |  _=|/))  (\\|    |  " << endl;
-//     cout << "                        |-__ (/ . . \\) -__|  " << endl;
-//     cout << "                        |___ /`\\_Y_/`\\____|  " << endl;
-//     cout << "                            \\)8===8(/       " << endl;
-// }

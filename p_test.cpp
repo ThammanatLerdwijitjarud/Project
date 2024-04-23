@@ -26,10 +26,9 @@ int main () {
             L_cat.set_hol(L_cat.merge_sort((L_cat.get_hol())));
             
             L_cat.show_all('c');
-            sort_color(L_cat);
+            // sort_color(L_cat);
             decide(L_cat, 'c');
 
-            system("clear");
             
         }
         else if(i==2)
@@ -38,23 +37,22 @@ int main () {
             L_dog.set_hol(L_dog.merge_sort((L_dog.get_hol())));
         
             L_dog.show_all('d');
-            sort_color(L_dog);
+            // sort_color(L_dog);
             decide(L_dog, 'd');
 
-            system("clear");
         }
         else if(i==3)
         {
             donate();
-
-            system("clear");
         }
         cout<<"Do you want to do it again ? (y/n):  ";
         cin>>choice;
         if(choice=='n' || choice == 'N')
         {
+            system("clear");
             break;
         }
+        else { system("clear"); }
     }
 
     return 0;
