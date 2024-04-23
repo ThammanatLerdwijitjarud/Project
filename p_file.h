@@ -106,7 +106,7 @@ void delete_node(const std::string name, LL& ll) {
             }
             delete current;
             ll.d_size();
-            return;
+            return ;
         }
         prev = current;
         current = current->move_next();

@@ -133,6 +133,7 @@ void decide(LL & ll, char c)
             cin >> contact;
             bill(person,name,contact);
             delete_node(name,ll);
+            delete_file("test_dog.txt",name);
             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
         }
     }
