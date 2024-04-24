@@ -88,18 +88,18 @@ bool validateDate(const string& date) {
 int donation() {
     string name, phoneNumber, donationDate;
     double amount;
-
+    cin.ignore();gg
     cout << "Enter donor's name                       : ";
-   // getline(cin, name);
-   cin>>name; 
-   cout<<"don1"<<endl;
+    getline(cin >> ws, name);
+   //cin>>name; 
+   //cout<<"don1"<<endl;
 
     bool validPhoneNumber = false;
     while (!validPhoneNumber) {
         cout << "Enter donor's phone number (XXX-XXX-XXXX): ";
-        // getline(cin, phoneNumber); // ดูตรงนี้หน่อย
-        cin>>phoneNumber;
-        cout<<"dona2"<<endl;
+        getline(cin, phoneNumber); // ดูตรงนี้หน่อย
+        //cin>>phoneNumber;
+        //cout<<"dona2"<<endl;
         validPhoneNumber = validatePhoneNumber(phoneNumber);
         if (!validPhoneNumber) {
             cout << "Invalid phone number. Please enter a valid phone number (XXX-XXX-XXXX)." << endl;
