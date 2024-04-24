@@ -90,12 +90,16 @@ int donation() {
     double amount;
 
     cout << "Enter donor's name                       : ";
-    getline(cin, name);
+   // getline(cin, name);
+   cin>>name; 
+   cout<<"don1"<<endl;
 
     bool validPhoneNumber = false;
     while (!validPhoneNumber) {
         cout << "Enter donor's phone number (XXX-XXX-XXXX): ";
-        getline(cin, phoneNumber);
+        // getline(cin, phoneNumber); // ดูตรงนี้หน่อย
+        cin>>phoneNumber;
+        cout<<"dona2"<<endl;
         validPhoneNumber = validatePhoneNumber(phoneNumber);
         if (!validPhoneNumber) {
             cout << "Invalid phone number. Please enter a valid phone number (XXX-XXX-XXXX)." << endl;

@@ -1,11 +1,14 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
-#include"donation.cpp"
+#include"donation1.cpp"
 #include"add_on_func.cpp"
 using namespace std;
 
 int main () {
+    int d;
+    d = donation();
+    
 
     LL L_cat, L_dog;
 
@@ -45,7 +48,7 @@ int main () {
         }
         else if(i==3)
         {
-            donate();
+            //donate();
             //int d;
             //d=donation();
         }
