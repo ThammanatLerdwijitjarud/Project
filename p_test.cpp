@@ -46,6 +46,8 @@ int main () {
         else if(i==3)
         {
             donate();
+            //int d;
+            //d=donation();
         }
         cout<<"Do you want to do it again ? (y/n):  ";
         cin>>choice;

@@ -1,2 +1,1 @@
-Garfield,F,1 year old,5,orange
 Tom,M,10 months,10,gray
