@@ -18,7 +18,7 @@ using namespace std;
 #define DEFAULT_COLOR "\033[0m"
 
 int menu();
-void Choose_sort(LL &ll, char a);
+void Choose_sort(LL &ll);
 void guide(LL & ll, char c);
 void decide(LL & ll, char c);
 void bill(string p,string nani,string tel);
@@ -53,7 +53,13 @@ int menu()
     while(flag==0)
     {
         try {
+    
+            cout<<R"(Option : 1. Adopt cat
+                              2. Adopt dog
+                              3. Donate\n)";
+                              
             cout <<"What do you want to do? : ";
+    
             cin>>i;
             if(cin.fail()) {
                 throw notnum;
@@ -74,7 +80,7 @@ int menu()
     return i;
 }
 
-void Choose_sort(LL &ll,char a)
+void Choose_sort(LL &ll)
 {
     int choice,flag=0;
     while(flag==0)
@@ -105,12 +111,14 @@ void Choose_sort(LL &ll,char a)
     }
     else if(choice==2)
     {
+        ll.selection();
+        ll.show_all();
         // ยังทำไม่ได้
         // selection_sort(ll,a);
     }
     else {
         ll.set_hol(ll.merge_sort((ll.get_hol())));
-        ll.show_all(a);
+        ll.show_all();
     }
 
 }
@@ -304,41 +312,41 @@ void sort_color(LL &ll)
 }
 
 //ปัญหาคือ อายุมีทั้งเดือนและปี มันเลย sort ไม่ได้
-void selection_sort(LL &ll, char c) {
+// void selection_sort(LL &ll, char c) {
 
-    int flag = 1;
-    int s = ll.d_size();
-    cout<<"size = "<<s<<endl;
-    string temp;
+//     int flag = 1;
+//     int s = ll.d_size();
+//     cout<<"size = "<<s<<endl;
+//     string temp;
 
-    Animal *a = ll.get_hol();
-    Animal *min , *temp_a;
+//     Animal *a = ll.get_hol();
+//     Animal *min , *temp_a;
     
-    while(a!=NULL){
+//     while(a!=NULL){
 
-        min = a;
-        flag = 0;
-        temp_a = a->move_next();
-        cout<<"sort1"<<endl;
+//         min = a;
+//         flag = 0;
+//         temp_a = a->move_next();
+//         cout<<"sort1"<<endl;
 
-        while(temp_a!=NULL) {
-            if (a->get_age() > temp_a->get_age()) {
-                min = temp_a;
-                flag = 1;
-                cout<<"sort2"<<endl;
-            }
-        }
-        if (flag == 1) {
-            temp = min->get_age();
-            min->get_age() = a->get_age();
-            a->get_age() = temp;
-            min = min->move_next();
-            a->show_node();
-        }
-    }
-    cout<<"\n";
+//         while(temp_a!=NULL) {
+//             if (a->get_age() > temp_a->get_age()) {
+//                 min = temp_a;
+//                 flag = 1;
+//                 cout<<"sort2"<<endl;
+//             }
+//         }
+//         if (flag == 1) {
+//             temp = min->get_age();
+//             min->get_age() = a->get_age();
+//             a->get_age() = temp;
+//             min = min->move_next();
+//             a->show_node();
+//         }
+//     }
+//     cout<<"\n";
 
-}
+// }
 
 
 void bill(string p,string nani,string tel)

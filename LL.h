@@ -1,6 +1,9 @@
 #include"NODE.h"
 #include"cat.h"
 #include"dog.h"
+
+void swap(Animal *& n1, Animal *& n2);
+
 class LL : public Animal {
 private:
      Animal *hol = NULL;
@@ -12,12 +15,13 @@ private:
      friend void delete_ll(LL &ll);
 public:
      void add_node(Animal*&);
-     void show_all(char);
+     void show_all();
      int d_size();
      Animal* get_hol() const { return hol; }
      int get_size() const { return size; }
      void set_hol(Animal *new_hol) { hol = new_hol; }
      void clear();
+     void selection();
     
     ~LL();
     LL();
@@ -41,7 +45,7 @@ LL::~LL(){
 
 }
 
-void LL::show_all(char a){
+void LL::show_all(){
      
      Animal* t=hol;
 
@@ -111,3 +115,40 @@ int LL::d_size()
 //     hol = NULL;
 //     size = 0; // รีเซ็ตขนาดลิงก์ลิสต์เป็น 0
 // }
+
+// void LL::selection() {
+//      Animal * hol_temp = hol;
+//      Animal * temp;
+//      while (hol_temp != NULL) {
+//           temp = hol_temp->move_next();
+//           while (temp != NULL) {
+//                if (hol_temp->get_age() < temp->get_age()) {
+//                     swap(hol_temp, temp);
+//                }
+//                temp = temp->move_next();
+//           }
+//           hol_temp = hol_temp->move_next();
+//      }
+
+//      cout << "test\n";
+//      show_all();
+// }
+
+void LL::selection() {
+     Animal * hol_temp = hol;
+     Animal * temp, * temp2 = new Animal;
+     while (hol_temp != NULL) {
+          temp = hol_temp->move_next();
+          while (temp != NULL) {
+               if (temp->get_age() > hol_temp->get_age()) {
+                    temp2->add_value(hol_temp);
+                    hol_temp->add_value(temp);
+                    temp->add_value(temp2);
+                    cout << "after swaped\n";
+                    show_all();
+               }
+               temp = temp->move_next();
+          }
+          hol_temp = hol_temp->move_next();
+     }
+}

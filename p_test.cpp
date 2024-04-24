@@ -24,15 +24,20 @@ int main () {
 
         if(i==1)
         {
-            Choose_sort(L_cat,'c');
+
+            L_cat.show_all();
+
+            Choose_sort(L_cat);
           
             decide(L_cat, 'c');
-
             
         }
         else if(i==2)
         {
-            Choose_sort(L_dog,'d');
+
+            L_dog.show_all();
+
+            Choose_sort(L_dog);
         
             decide(L_dog, 'd');
 

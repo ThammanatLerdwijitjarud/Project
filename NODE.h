@@ -22,6 +22,8 @@ class Animal {
         Animal *merge(Animal *a, Animal *b);
         Animal *mid_point(Animal *head);
         Animal* merge_sort(Animal *head);
+
+        void add_value(Animal * n1);
 };
 
 
@@ -46,7 +48,26 @@ string Animal::get_gender()
 
 string Animal::get_age()
 {
-    return age;
+
+    int L = age.length();
+    string temp;
+
+    for (char c:age) {
+        if (c >= '0' && c <='9') {
+            temp += c;
+        }
+    }
+    if(age[L-6] == 'h') {
+        cout << name << " : month => " << stoi(temp) << endl;
+        return to_string(stoi(temp));
+        // return "A";
+    }
+    else {
+        cout << name << " : month => " << stoi(temp) * 12 << endl;
+        return to_string(stoi(temp) * 12);
+        // return "B";
+    }
+
 }
 
 int Animal::get_weight()
@@ -153,4 +174,12 @@ Animal * Animal::merge_sort(Animal *head) {
     Animal *c = merge(a, b);
  
     return c;
+}
+
+void Animal::add_value(Animal * n1) {
+    this->name = n1->name;
+    this->color = n1->color;
+    this->gender = n1->gender;
+    this->age = n1->age;
+    this->weight = n1->weight;
 }
