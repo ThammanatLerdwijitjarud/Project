@@ -2,6 +2,7 @@
 #include<fstream>
 #include<sstream>
 #include<iomanip>
+#include <exception>
 #include"p_file.h"
 using namespace std;
 
@@ -16,6 +17,7 @@ using namespace std;
 #define DEFAULT_COLOR "\033[0m"
 
 int menu();
+void Choose_sort(LL &ll, char a);
 void guide(LL & ll, char c);
 void decide(LL & ll, char c);
 void bill(string p,string nani,string tel);
@@ -29,20 +31,85 @@ void cathome();
 void cat_select();
 void dog_select();
 
+class Not_number: public exception
+{
+	public:
+	 const char* what() const throw()
+	{
+		cin.clear();
+		cin.ignore(50,'\n');
+		return "Invalid";
+	}
+}notnum;
+
 
 int menu()
 {
-    int i;
+    int i,flag=0;
     welcome();
     option();
-    cout <<"What do you want to do? : ";
-    cin>>i;
-    while(i<1 ||i>3) 
-    { 
-        cout<<"Please enter only 1-3: ";
-        cin>>i;
+    while(flag==0)
+    {
+        try {
+            cout <<"What do you want to do? : ";
+            cin>>i;
+            if(cin.fail()) {
+                throw notnum;
+            }
+            while(i<1 ||i>3) { 
+                cout<<"Please enter only 1-3: ";
+                cin>>i;
+                if(cin.fail()) {
+                    throw notnum;
+                }
+            }
+            flag=1;
+        }
+        catch(exception &e) {
+            cout<<e.what()<<endl;
+        }
     }
     return i;
+}
+
+void Choose_sort(LL &ll,char a)
+{
+    int choice,flag=0;
+    while(flag==0)
+    {
+        try {
+            cout<< "Sort by..."<<endl;
+            cout<< "1. color"<< "\n"<<"2. age (min to max)"<<"\n"<<"3. Not sure (view all)"<<endl;
+            cout<< "You choose : ";
+            cin>>choice;
+            if(cin.fail()) {
+                throw notnum;
+            }
+            while(choice<1 ||choice>3) { 
+                cout<<"Please enter only 1-3: ";
+                cin>>choice;
+                if(cin.fail()) {
+                    throw notnum;
+                }
+            }
+            flag=1;
+        }
+        catch(exception &e) {
+            cout<<e.what()<<endl;
+        }
+    }
+    if(choice==1) {
+        sort_color(ll);
+    }
+    else if(choice==2)
+    {
+        //ยังไม่ได้ทำ
+    }
+    else {
+        ll.set_hol(ll.merge_sort((ll.get_hol())));
+        ll.show_all(a);
+    }
+
 }
 
 
@@ -66,7 +133,7 @@ void guide(LL &ll,char c)
             }
             myfile.close();
         }
-        ll.home();
+        // ll.home();
     }
     else
     {
@@ -86,7 +153,7 @@ void guide(LL &ll,char c)
             }
             myfile.close();
         }
-        ll.home();
+        // ll.home();
     }
 }
 
@@ -98,7 +165,7 @@ void decide(LL & ll, char c)
     if(c=='c')
     {
         // cat_select(); ปริ้นรูป
-        sort_color(ll);
+        // sort_color(ll);
         do{
             cout<<"Which cat do you want to adopt ? Enter name : ";
             cin>>name;
@@ -127,7 +194,7 @@ void decide(LL & ll, char c)
     else
     {
         // dog_select(); ปริ้นรูป
-        sort_color(ll);
+        // sort_color(ll);
         do{
             cout<<"Which dog do you want to adopt ? Enter name : ";
             cin>>name;

@@ -77,8 +77,11 @@ bool validateDate(const string& date) {
 
     int day = stoi(dayStr);
     int month = stoi(monthStr);
-
-    if (day < 1 || day > 31 || month < 1 || month > 12) {
+    if(month==2 && (day<1 || day>29))
+    {
+        return false;
+    }
+    else if (day < 1 || day > 31 || month < 1 || month > 12) {
         return false;
     }
     return true;
@@ -91,15 +94,12 @@ int donation() {
     cin.ignore();
     cout << "Enter donor's name                       : ";
     getline(cin >> ws, name);
-   //cin>>name; 
-   //cout<<"don1"<<endl;
 
     bool validPhoneNumber = false;
     while (!validPhoneNumber) {
         cout << "Enter donor's phone number (XXX-XXX-XXXX): ";
-        getline(cin, phoneNumber); // ดูตรงนี้หน่อย
-        //cin>>phoneNumber;
-        //cout<<"dona2"<<endl;
+        getline(cin, phoneNumber);
+
         validPhoneNumber = validatePhoneNumber(phoneNumber);
         if (!validPhoneNumber) {
             cout << "Invalid phone number. Please enter a valid phone number (XXX-XXX-XXXX)." << endl;
@@ -108,11 +108,11 @@ int donation() {
 
     bool validDate = false;
     while (!validDate) {
-        cout << "Enter donation date (DD-MM-YYYY)         : ";
+        cout << "Enter donation date (DD/MM/YYYY)         : ";
         getline(cin, donationDate);
         validDate = validateDate(donationDate);
         if (!validDate) {
-            cout << "Invalid date. Please enter a valid date (DD-MM-YYYY)." << endl;
+            cout << "Invalid date. Please enter a valid date (DD/MM/YYYY)." << endl;
         }
     }
 

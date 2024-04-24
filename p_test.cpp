@@ -6,9 +6,6 @@
 using namespace std;
 
 int main () {
-    //int d;
-    //d = donation();
-    
 
     LL L_cat, L_dog;
 
@@ -27,28 +24,21 @@ int main () {
 
         if(i==1)
         {
-
-            L_cat.set_hol(L_cat.merge_sort((L_cat.get_hol())));
-            
-            L_cat.show_all('c');
-            // sort_color(L_cat);
+            Choose_sort(L_cat,'c');
+          
             decide(L_cat, 'c');
 
             
         }
         else if(i==2)
         {
-
-            L_dog.set_hol(L_dog.merge_sort((L_dog.get_hol())));
+            Choose_sort(L_dog,'d');
         
-            L_dog.show_all('d');
-            // sort_color(L_dog);
             decide(L_dog, 'd');
 
         }
         else if(i==3)
         {
-            //donate();
             int d;
             d=donation();
         }

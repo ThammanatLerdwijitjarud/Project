@@ -12,11 +12,7 @@ private:
      friend void delete_ll(LL &ll);
 public:
      void add_node(Animal*&);
-     // void add_node(cat*&);
-     // void add_node(dog*&);
      void show_all(char);
-     // void delete_node(string name);
-     // void delete_node(Animal*&);
      int d_size();
      Animal* get_hol() const { return hol; }
      int get_size() const { return size; }
