@@ -138,19 +138,29 @@ int LL::d_size()
 // ??????????????????????
 void LL::selection() {
      Animal * hol_temp = hol;
-     Animal * temp, * temp2 = new Animal;
+     Animal * temp, * temp2 = new Animal, *max_age_node;
+     int max_age;
      while (hol_temp != NULL) {
           temp = hol_temp->move_next();
+          max_age = stoi(hol_temp->get_age2());
+          max_age_node = hol_temp;
           while (temp != NULL) {
-               if (temp->get_age() > hol_temp->get_age()) {
-                    temp2->add_value(hol_temp);
-                    hol_temp->add_value(temp);
-                    temp->add_value(temp2);
-                    cout << "after swaped\n";
-                    show_all();
+               if (stoi(temp->get_age2()) > max_age) {
+                    // cout <<"get ";
+                    max_age = stoi(temp->get_age2());
+                    max_age_node = temp;
+               }
+               if(temp->move_next()==NULL) {
+                    break;
                }
                temp = temp->move_next();
           }
+
+          temp2->add_value(hol_temp);
+          hol_temp->add_value(max_age_node);
+          max_age_node->add_value(temp2);
+
           hol_temp = hol_temp->move_next();
      }
 }
+

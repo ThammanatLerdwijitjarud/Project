@@ -55,8 +55,8 @@ int menu()
         try {
     
             cout<<R"(Option : 1. Adopt cat
-                              2. Adopt dog
-                              3. Donate\n)";
+         2. Adopt dog
+         3. Donate)" << endl;
                               
             cout <<"What do you want to do? : ";
     

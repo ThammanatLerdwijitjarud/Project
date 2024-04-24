@@ -6,12 +6,13 @@ class Animal {
     private:
         string name, color, gender, age;
         int weight;
-        Animal* next;
+        Animal* next = NULL;
     public:
         Animal(string = "TBD", string = "TBD", string = "1 years old", int = 5, string = "Col");
         string get_name();
         string get_gender();
         string get_age();
+        string get_age2();
         string get_color();
         int get_weight();
         void show_node();
@@ -48,6 +49,11 @@ string Animal::get_gender()
 
 string Animal::get_age()
 {
+    return age;
+}
+
+string Animal::get_age2()
+{
 
     int L = age.length();
     string temp;
@@ -58,14 +64,10 @@ string Animal::get_age()
         }
     }
     if(age[L-6] == 'h') {
-        cout << name << " : month => " << stoi(temp) << endl;
         return to_string(stoi(temp));
-        // return "A";
     }
     else {
-        cout << name << " : month => " << stoi(temp) * 12 << endl;
         return to_string(stoi(temp) * 12);
-        // return "B";
     }
 
 }
