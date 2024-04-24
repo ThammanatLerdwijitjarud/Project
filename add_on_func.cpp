@@ -25,6 +25,7 @@ void bill(string p,string nani,string tel);
 void sort_color(LL &ll);
 int check_word(const string& name, const string& filename);
 int check_word(string n,LL &ll);
+void selection_sort(LL &ll, char c);
 void welcome();
 void option();
 void doghome();
@@ -48,7 +49,7 @@ int menu()
 {
     int i,flag=0;
     welcome();
-    option();
+    // option();
     while(flag==0)
     {
         try {
@@ -104,7 +105,8 @@ void Choose_sort(LL &ll,char a)
     }
     else if(choice==2)
     {
-        //ยังไม่ได้ทำ
+        // ยังทำไม่ได้
+        // selection_sort(ll,a);
     }
     else {
         ll.set_hol(ll.merge_sort((ll.get_hol())));
@@ -301,6 +303,44 @@ void sort_color(LL &ll)
     }
 }
 
+//ปัญหาคือ อายุมีทั้งเดือนและปี มันเลย sort ไม่ได้
+void selection_sort(LL &ll, char c) {
+
+    int flag = 1;
+    int s = ll.d_size();
+    cout<<"size = "<<s<<endl;
+    string temp;
+
+    Animal *a = ll.get_hol();
+    Animal *min , *temp_a;
+    
+    while(a!=NULL){
+
+        min = a;
+        flag = 0;
+        temp_a = a->move_next();
+        cout<<"sort1"<<endl;
+
+        while(temp_a!=NULL) {
+            if (a->get_age() > temp_a->get_age()) {
+                min = temp_a;
+                flag = 1;
+                cout<<"sort2"<<endl;
+            }
+        }
+        if (flag == 1) {
+            temp = min->get_age();
+            min->get_age() = a->get_age();
+            a->get_age() = temp;
+            min = min->move_next();
+            a->show_node();
+        }
+    }
+    cout<<"\n";
+
+}
+
+
 void bill(string p,string nani,string tel)
 {
     cout<<"bill1"<<endl;
@@ -373,38 +413,38 @@ void welcome()
 
 void dog_select()
 {
-    cout<<endl;
-    cout<<"     _     /)---(\\          /~~~\\"<<endl;
-    cout<<"     \\\\   (/ . . \\)        /  .. \\"<<endl;
-    cout<<"      \\\\__)-\\(*)/         (_,\\  |_)"<<endl;
-    cout<<"      \\_       (_         /   \\@/    /^^^\\"<<endl;
-    cout<<"      (___/-(____) _     /      \\   / . . \\"<<endl;
-    cout<<"                   \\\\   /  `    |   V\\ Y /V"<<endl;
-    cout<<"                    \\\\/  \\   | _\\    / - \\"<<endl;
-    cout<<"                     \\   /__'|| \\\\_  |    \\"<<endl;
-    cout<<"                      \\_____)|_).\\_).||(__V"<<endl;
+    std::cout<<YELLOW_TEXT<<endl;
+    cout<<"                              /~~~\\"<<endl;
+    cout<<"                             /  .. \\"<<endl;
+    cout<<"                            (_,\\  |_)"<<endl;
+    cout<<"                           /   \\@/    /^^^\\"<<endl;
+    cout<<"    _     /)---(\\   _     /      \\   / . . \\"<<endl;
+    cout<<"    \\\\   (/ . . \\)  \\\\   /  `    |   V\\ Y /V"<<endl;
+    cout<<"     \\\\__)-\\(*)/      \\\\/  \\   | _\\    / - \\"<<endl;
+    cout<<"     \\_       (_       \\   /__'|| \\\\_  |    \\"<<endl;
+    cout<<"     (___/-(____)       \\_____)|_).\\_).||(__V"<<std::endl;
 }
 
 void cat_select()
 {
-    cout<<endl;
+    std::cout<<YELLOW_TEXT<<endl;
     cout<<"                     ⟁ ,,⟁ ⟁ ,,⟁"<<endl;
     cout<<"                 ⟁ (' •w• )(•w• ') ⟁ ⟁"<<endl;
     cout<<"                (' •w)   U)(つとノ(w • ' )"<<endl;
     cout<<"                | U (    '•)(•'   )  とノ"<<endl;
     cout<<"                 u-u(|     )(    ノ u-u"<<endl;
-    cout<<"                     'u-u'.  'u-u'"<<endl;
-    cout<<""<<endl;
+    cout<<"                     'u-u'.  'u-u'"<<std::endl;
+    cout<<endl;
 }
 
 void cathome()
 {
     
-    cout<<"      /\\_/\\"<<endl;
-    cout<<"     (  •w•)"<<endl;
-    cout<<" ____|  つ/(________"<<endl;
-    cout<<"/_______ヒ-(_______/"<<endl;
-    cout<<"__________________"<<endl;
+    std::cout<<DEFAULT_COLOR<<"       /\\_/\\"<<endl;
+    cout<<"      (  •w•)"<<endl;
+    std::cout<<RED_TEXT<<"  ____"<<DEFAULT_COLOR<<"|  つ/("<<RED_TEXT<<"________"<<endl;
+    cout<<" /_______"<<DEFAULT_COLOR<<"ヒ-("<<RED_TEXT<<"_______/|"<<endl;
+    cout<<"|__________________|/"<<std::endl<<endl;
 }
 
 void doghome() {
@@ -424,39 +464,43 @@ void doghome() {
     std::cout<<DEFAULT_COLOR << "                             \\)8===8(/       " << std::endl;
 }
 
-void option()
-{
-    std::cout<<BLUE_TEXT<<"  ____ _                                       _   _ "<<endl;
-    cout<<" / ___| |__   ___   ___  ___  ___   ___  _ __ | |_(_) ___  _ __     "<<endl;
-    cout<<"| |   | '_ \\ / _ \\ / _ \\/ __|/ _ \\ / _ \\| '_ \\| __| |/ _ \\| '_ \\  "<<endl;
-    cout<<"| |___| | | | (_) | (_) \\__ \\  __/| (_) | |_) | |_| | (_) | | | |"<<endl;
-    cout<<" \\____|_| |_|\\___/ \\___/|___/\\___| \\___/| .__/ \\__|_|\\___/|_| |_| "<<endl;
-    cout<<"                                        |_| "<<endl<<endl;
-    cout<<" _        _       _             _               _               ____         _       _             _          _"<<endl;
-    cout<<"/ |      / \\   __| | ___  _ __ | |_    ___ __ _| |_            |___ \\       / \\   __| | ___  _ __ | |_     __| | ___   __ _     "<<endl;
-    cout<<"| |     / _ \\ / _` |/ _ \\| '_ \\| __|  / __/ _` | __|             __) |     / _ \\ / _` |/ _ \\| '_ \\| __|   / _` |/ _ \\ / _` |   "<<endl;
-    cout<<"| |_   / ___ \\ (_| | (_) | |_) | |_  | (_| (_| | |_             / __/ _   / ___ \\ (_| | (_) | |_) | |_   | (_| | (_) | (_| |"<<endl;
-    cout<<"|_(_) /_/   \\_\\__,_|\\___/| .__/ \\__|  \\___\\__,_|\\__|           |_____(_) /_/   \\_\\__,_|\\___/| .__/ \\__|   \\__,_|\\___/ \\__, |   "<<endl;
-    cout<<"                         |_|                                                                |_|                       |___/  "<<endl;
-    cout<<"                                                              "<<endl;
-    std::cout<<DEFAULT_COLOR"                                                                                          ___"<<endl;
-    cout<<"                   /\\__/\\                                                              __/_  '.  .-\"\"\"-."<<endl;
-    cout<<"                  (' •w•)づ__/\\                                                        \\_,' | \\-'  /   )'-')"<<endl;
-    cout<<"                  (っ  / ( •w•=)                                                          "") '""    \\  (('"""<<endl;
-    cout<<"                  し--J  (nn ノ)  pat pat                                                ___Y  ,    .'7 /|"<<endl;
-    cout<<"                                                                                        (_,___/...-' (_/_/ "<<endl;
-    std::cout<<BLUE_TEXT"                                       _____    ____                    _   "<<endl;
-    cout<<"                                      |___ /   |  _ \\  ___  _ __   __ _| |_ ___ "<<endl;
-    cout<<"                                        |_ \\   | | | |/ _ \\| '_ \\ / _` | __/ _ \\"<<endl;
-    cout<<"                                       ___) |  | |_| | (_) | | | | (_| | ||  __/"<<endl;
-    cout<<"                                      |____(_) |____/ \\___/|_| |_|\\__,_|\\__\\___|"<<endl;
-    cout<<""<<endl;
-    std::cout<<DEFAULT_COLOR<<"                                                                v"<<endl;
-    cout<<"                                                  ___     .--,  |"<<endl;
-    cout<<"                                                 |   |   (('')) /"<<endl;
-    cout<<"                                                 |___|___ /  \\/ "<<endl;
-    cout<<"                                                         /____\\"<<endl;
-    cout<<"                                                          _/ \\_"<<std::endl;
-}
+// void option()
+// {
+// <<<<<<< HEAD
+//     std::cout<<BLUE_TEXT<<"  ____ _                                       _   _ "<<endl;
+// =======
+//     std::cout<<DEFAULT_COLOR<<"  ____ _                                       _   _ "<<endl;
+// >>>>>>> b32e9159eed6234ce9bd1bbedb498a4ee792c2c7
+//     cout<<" / ___| |__   ___   ___  ___  ___   ___  _ __ | |_(_) ___  _ __     "<<endl;
+//     cout<<"| |   | '_ \\ / _ \\ / _ \\/ __|/ _ \\ / _ \\| '_ \\| __| |/ _ \\| '_ \\  "<<endl;
+//     cout<<"| |___| | | | (_) | (_) \\__ \\  __/| (_) | |_) | |_| | (_) | | | |"<<endl;
+//     cout<<" \\____|_| |_|\\___/ \\___/|___/\\___| \\___/| .__/ \\__|_|\\___/|_| |_| "<<endl;
+//     cout<<"                                        |_| "<<endl<<endl;
+//     std::cout<<BLUE_TEXT<<" _        _       _             _               _               ____         _       _             _          _"<<endl;
+//     cout<<"/ |      / \\   __| | ___  _ __ | |_    ___ __ _| |_            |___ \\       / \\   __| | ___  _ __ | |_     __| | ___   __ _     "<<endl;
+//     cout<<"| |     / _ \\ / _` |/ _ \\| '_ \\| __|  / __/ _` | __|             __) |     / _ \\ / _` |/ _ \\| '_ \\| __|   / _` |/ _ \\ / _` |   "<<endl;
+//     cout<<"| |_   / ___ \\ (_| | (_) | |_) | |_  | (_| (_| | |_             / __/ _   / ___ \\ (_| | (_) | |_) | |_   | (_| | (_) | (_| |"<<endl;
+//     cout<<"|_(_) /_/   \\_\\__,_|\\___/| .__/ \\__|  \\___\\__,_|\\__|           |_____(_) /_/   \\_\\__,_|\\___/| .__/ \\__|   \\__,_|\\___/ \\__, |   "<<endl;
+//     cout<<"                         |_|                                                                |_|                       |___/  "<<endl;
+//     cout<<"                                                              "<<endl;
+//     std::cout<<DEFAULT_COLOR"                                                                                          ___"<<endl;
+//     cout<<"                   /\\__/\\                                                              __/_  '.  .-\"\"\"-."<<endl;
+//     cout<<"                  (' •w•)づ__/\\                                                        \\_,' | \\-'  /   )'-')"<<endl;
+//     cout<<"                  (っ  / ( •w•=)                                                          "") '""    \\  (('"""<<endl;
+//     cout<<"                  し--J  (nn ノ)  pat pat                                                ___Y  ,    .'7 /|"<<endl;
+//     cout<<"                                                                                        (_,___/...-' (_/_/ "<<endl;
+//     std::cout<<BLUE_TEXT"                                       _____    ____                    _   "<<endl;
+//     cout<<"                                      |___ /   |  _ \\  ___  _ __   __ _| |_ ___ "<<endl;
+//     cout<<"                                        |_ \\   | | | |/ _ \\| '_ \\ / _` | __/ _ \\"<<endl;
+//     cout<<"                                       ___) |  | |_| | (_) | | | | (_| | ||  __/"<<endl;
+//     cout<<"                                      |____(_) |____/ \\___/|_| |_|\\__,_|\\__\\___|"<<endl;
+//     cout<<""<<endl;
+//     std::cout<<DEFAULT_COLOR<<"                                                                v"<<endl;
+//     cout<<"                                                  ___     .--,  |"<<endl;
+//     cout<<"                                                 |   |   (('')) /"<<endl;
+//     cout<<"                                                 |___|___ /  \\/ "<<endl;
+//     cout<<"                                                         /____\\"<<endl;
+//     cout<<"                                                          _/ \\_"<<std::endl;
+// }
 
 
