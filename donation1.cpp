@@ -88,7 +88,7 @@ bool validateDate(const string& date) {
 int donation() {
     string name, phoneNumber, donationDate;
     double amount;
-    cin.ignore();gg
+    cin.ignore();
     cout << "Enter donor's name                       : ";
     getline(cin >> ws, name);
    //cin>>name; 
