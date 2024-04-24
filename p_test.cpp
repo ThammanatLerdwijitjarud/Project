@@ -6,8 +6,8 @@
 using namespace std;
 
 int main () {
-    int d;
-    d = donation();
+    //int d;
+    //d = donation();
     
 
     LL L_cat, L_dog;
@@ -49,8 +49,8 @@ int main () {
         else if(i==3)
         {
             //donate();
-            //int d;
-            //d=donation();
+            int d;
+            d=donation();
         }
         cout<<"Do you want to do it again ? (y/n):  ";
         cin>>choice;
