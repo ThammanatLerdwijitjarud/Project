@@ -1,7 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
-#include"donation1.cpp"
+#include"donation.cpp"
 #include"add_on_func.cpp"
 using namespace std;
 

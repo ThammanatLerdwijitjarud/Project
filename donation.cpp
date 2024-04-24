@@ -1,107 +1,148 @@
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <cctype>
+
 using namespace std;
 
-void donate();
-
-class Donor {
-public:
-    std::string name;
-    double amount;
-    Donor* next;
-
-    Donor(std::string donorName, double donationAmount);
-};
-
-Donor::Donor(std::string donorName, double donationAmount){
-    name = donorName;
-    amount = donationAmount;
-    next = NULL;
-}
-
-class donation {
+class Donation {
 private:
-    Donor* head;
+    string name;
+    string phoneNumber;
+    double amount;
+    string donationDate;
 
 public:
-    donation();
-    void adddonation(const Donor& donor);
-    double total();
-    void display();
-    ~donation();
+    // Constructor
+    Donation(string n, string ph, double amt, string date) {
+        name = n;
+        phoneNumber = ph;
+        amount = amt;
+        donationDate = date;
+    }
+
+    void saveToFile() {
+        ofstream outFile("donations.txt", ios::app);
+        if (outFile.is_open()) {
+            outFile << name << "," << phoneNumber << "," << amount << "," << donationDate << endl;
+            outFile.close();
+        } else {
+            cout << "Unable to open file for saving donation." << endl;
+        }
+    }
+
+    static double getTotalDonation() {
+        ifstream inFile("donations.txt");
+        if (!inFile) {
+            cout << "Unable to open file for reading donations." << endl;
+            return 0.0;
+        }
+
+        double total = 0.0;
+        string line;
+        while (getline(inFile, line)) {
+            size_t pos = 0;
+            string token;
+            int count = 0;
+            while ((pos = line.find(",")) != string::npos) {
+                token = line.substr(0, pos);
+                if (count == 2) {
+                    total += stod(token);
+                }
+                line.erase(0, pos + 1);
+                count++;
+            }
+        }
+        inFile.close();
+        return total;
+    }
 };
 
-donation::donation(){
-    head = NULL;
-}
-
-void donation::adddonation(const Donor& donor){
-    Donor* newDonor = new Donor(donor.name, donor.amount);
-    if (head == NULL){
-        head = newDonor;
-    } else{
-        Donor* currentptr = head;
-        while (currentptr->next != NULL){
-            currentptr = currentptr->next;
+bool validatePhoneNumber(const string& phoneNumber) {
+    if (phoneNumber.length() != 12) {
+        return false;
+    }
+    for (char c : phoneNumber) {
+        if (!isdigit(c) && c != '-') {
+            return false;
         }
-        currentptr->next = newDonor;
     }
+    return true;
 }
 
-double donation::total(){
-    double total = 0.0;
-    Donor* currentptr = head;
-    while (currentptr != NULL) {
-        total += currentptr->amount;
-        currentptr = currentptr->next;
+bool validateDate(const string& date) {
+    // format DD-MM-YYYY
+    string dayStr = date.substr(0, 2);
+    string monthStr = date.substr(3, 2);
+
+    int day = stoi(dayStr);
+    int month = stoi(monthStr);
+    if(month==2 && (day<1 || day>29))
+    {
+        return false;
     }
-    return total;
+    else if (day < 1 || day > 31 || month < 1 || month > 12) {
+        return false;
+    }
+    return true;
 }
 
-void donation::display(){
-    std::cout << "List of Donors:" << std::endl;
-    Donor* currentptr = head;
-    while (currentptr != NULL){
-        std::cout << "Name: " << currentptr->name << ", Amount: ฿" << currentptr->amount << std::endl;
-        currentptr = currentptr->next;
+
+int donation() {
+    string name, phoneNumber, donationDate;
+    double amount;
+    cin.ignore();
+    cout << "Enter donor's name                       : ";
+    getline(cin >> ws, name);
+
+    bool validPhoneNumber = false;
+    while (!validPhoneNumber) {
+        cout << "Enter donor's phone number (XXX-XXX-XXXX): ";
+        getline(cin, phoneNumber);
+
+        validPhoneNumber = validatePhoneNumber(phoneNumber);
+        if (!validPhoneNumber) {
+            cout << "Invalid phone number. Please enter a valid phone number (XXX-XXX-XXXX)." << endl;
+        }
     }
-}
 
-donation::~donation(){
-    Donor* currentptr = head;
-    while (currentptr != NULL) {
-        Donor* temp = currentptr;
-        currentptr = currentptr->next;
-        delete temp;
+    bool validDate = false;
+    while (!validDate) {
+        cout << "Enter donation date (DD/MM/YYYY)         : ";
+        getline(cin, donationDate);
+        validDate = validateDate(donationDate);
+        if (!validDate) {
+            cout << "Invalid date. Please enter a valid date (DD/MM/YYYY)." << endl;
+        }
     }
-    head = NULL;
-}
 
-// อันนี้ห้ามลบ
+    cout << "Enter donation amount                    : ";
+    cin >> amount;
 
-void donate(){
-    donation donation;
+    if (amount <= 0) {
+        cout << "Invalid donation amount. Please enter a positive value." << endl;
+        return 1;
+    }
 
-    char choice;
-    do{
-        string name;
-        double amount;
+    char confirm;
+    cout << "Confirm donation (y/n)                   : ";
+    cin >> confirm;
+    if (confirm != 'y' && confirm != 'Y') {
+        cout << "Donation canceled." << endl;
+        return 1;
+    }
 
-        cout << "Enter donor's name: ";
-        cin >> name;
+    cin.ignore();
 
-        cout << "Enter donation amount: ";
-        cin >> amount;
+    // object
+    Donation donation(name, phoneNumber, amount, donationDate);
 
-        donation.adddonation(Donor(name, amount));
+    donation.saveToFile();
 
-        cout << "Do you want to add another donation? (y/n): ";
-        cin >> choice;
-    } while (choice == 'y' || choice == 'Y');
+    cout << "Thank you for your donation!" << endl;
 
-    donation.display();
+    // display total
+    cout << "All donations received by the Foundation: ฿ " << Donation::getTotalDonation() << endl;
 
-
-    cout << "Total Donations: ฿" << donation.total() << endl;
-
+    return 0;
 }
