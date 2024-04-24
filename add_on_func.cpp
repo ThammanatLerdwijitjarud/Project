@@ -2,8 +2,9 @@
 #include<fstream>
 #include<sstream>
 #include<iomanip>
-#include <exception>
+#include<exception>
 #include"p_file.h"
+
 using namespace std;
 
 #define RED_TEXT "\033[31m"
@@ -157,9 +158,22 @@ void guide(LL &ll,char c)
     }
 }
 
+bool check_phone(const string& phoneNumber) {
+    if (phoneNumber.length() != 12) {
+        return false;
+    }
+    for (char c : phoneNumber) {
+        if (!isdigit(c) && c != '-') {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 void decide(LL & ll, char c)
 {
-    string name,person,contact;
+    string name,person,phone;
     char con;
     int check = 0;
     if(c=='c')
@@ -183,9 +197,22 @@ void decide(LL & ll, char c)
                 cout << "please enter your information"<<endl;
                 cout << "Name : ";
                 cin >> person;
-                cout << "Phone number (0823456789) : ";
-                cin >> contact;
-                bill(person,name,contact);
+                // cout << "Phone number (0823456789) : ";
+                // cin >> contact;
+
+                //check phone number
+                bool validPhoneNumber = false;
+                while (!validPhoneNumber) {
+                    cout << "Phone number (XXX-XXX-XXXX): ";
+                    cin>>phone;
+
+                    validPhoneNumber = check_phone(phone);
+                    if (!validPhoneNumber) {
+                        cout << "Invalid phone number. Please enter a valid phone number (XXX-XXX-XXXX)." << endl;
+                    }
+                }
+                
+                bill(person,name,phone);
                 delete_node(name,ll);
                 delete_file("test_cat.txt",name);
                 cout<<"Reserve cat done!"<<"\n";
@@ -212,9 +239,19 @@ void decide(LL & ll, char c)
             cout << "please enter your information"<<endl;
             cout << "Name : ";
             cin >> person;
-            cout << "Phone number : ";
-            cin >> contact;
-            bill(person,name,contact);
+
+            bool validPhoneNumber = false;
+            while (!validPhoneNumber) {
+                cout << "Phone number (XXX-XXX-XXXX): ";
+                cin>>phone;
+
+                validPhoneNumber = check_phone(phone);
+                if (!validPhoneNumber) {
+                    cout << "Invalid phone number. Please enter a valid phone number (XXX-XXX-XXXX)." << endl;
+                }
+            }
+
+            bill(person,name,phone);
             delete_node(name,ll);
             delete_file("test_dog.txt",name);
             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
@@ -252,52 +289,50 @@ void sort_color(LL &ll)
         {
             a->show_node();
             flag++;
-            // cout<<"sort-c1"<<endl;
         }
-        // cout<<"sort-c2"<<endl;
         a = a->move_next();  
         
     }
+
     if(flag==0)
     {
         cout<<"We don't have that color, please enter color again."<<endl;
         sort_color(ll);
     }
-    
 }
 
 void bill(string p,string nani,string tel)
 {
     cout<<"bill1"<<endl;
     
-    cout <<" ____________________________________________________________________" << endl;
+    std::cout<<DEFAULT_COLOR <<" ____________________________________________________________________" << endl;
     cout <<"/\\                                                                   \\"<<endl;
-    cout <<"\\_|        /\\          /\\          /\\          /\\          /\\        |"<<endl;
-    cout <<"  |     /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\     |"<<endl;
-    cout <<"  |  /\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\  |"<<endl;
-    cout <<"  | //\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\ |"<<endl;
-    cout <<"  | \\\\//\\/           ,                                          \\\\// |"<<endl;
-    cout <<"  |  \\/          /\\^/'\\                                          \\/  |"<<endl;
-    cout <<"  |  /\\         | \\/   |     ____________________                /\\  |"<<endl;
-    cout <<"  | //\\\\        | |    |    ("<<setw(20)<<nani<<   ")              //\\\\ |"<<endl;
-    cout <<"  | \\\\//        \\ \\    /    ( (=@.@=)  ₍˄·͈༝·͈˄₎◞ ̑̑))    _ _       \\\\// |"<<endl;
-    cout <<"  |  \\/          '\\\\//'     ("<<setw(20)<<p<<   ")  _{ ' }_      \\/  |"<<endl;
-    cout <<"  |  /\\            ||       (Tel."<<setw(16)<<tel<<   ") { '.!.' }     /\\  |" <<endl;
-    cout <<"  | //\\\\           ||       (____________________) ',_/Y\\_,'    //\\\\ |"<<endl;
-    cout <<"  | \\\\//           ||  .                             {_,_}      \\\\// |"<<endl;
-    cout <<"  |  \\/            ||  |\\            0                 |         \\/  |"<<endl;
-    cout <<"  |  /\\        |\\  ||  | |                           (\\|  /)     /\\  |"<<endl;
-    cout <<"  | //\\\\       | | || / /                             \\| //     //\\\\ |"<<endl;
-    cout <<"  | \\\\//        \\ \\||/ /                               |//      \\\\// |"<<endl;
-    cout <<"  |  \\/          '\\\\//'    \\   \\./   \\\\   \\./   \\  \\\\  |/  /     \\/  |"<<endl;
-    cout <<"  |  /\\        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     /\\  |"<<endl;
-    cout <<"  | //\\\\/\\                                                    /\\//\\\\ |"<<endl;
-    cout <<"  | \\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\// | "<<endl;
-    cout <<"  |  \\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/  |"<<endl;
-    cout <<"  |     \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/     |"<<endl;
-    cout <<"  |        \\/          \\/          \\/          \\/          \\/        |"<<endl;
+    cout <<"\\_|        "<<BLUE_TEXT<<"/\\          /\\          /\\          /\\          /\\        "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |     "<<BLUE_TEXT<<"/\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\    /\\//\\\\/\\     "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<CYAN_TEXT<<"/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"//\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\ "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"\\\\//\\/           "<<RED_TEXT<<",                                          "<<MAGENTA_TEXT<<"\\\\// "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"\\/          "<<RED_TEXT<<"/\\^/'\\"<<DEFAULT_COLOR<<"                                          "<<MAGENTA_TEXT<<"\\/  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"/\\         "<<RED_TEXT<<"| \\/   |"<<DEFAULT_COLOR<<"     ____________________                "<<MAGENTA_TEXT<<"/\\  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"//\\\\        "<<RED_TEXT<<"| |    |"<<DEFAULT_COLOR<<"    ("<<setw(20)<<nani<<   ")              "<<MAGENTA_TEXT<<"//\\\\ "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"\\\\//        "<<RED_TEXT<<"\\ \\    /"<<DEFAULT_COLOR<<"    ( (=@.@=)  ₍˄·͈༝·͈˄₎◞ ̑̑))    "<<RED_TEXT<<"_ _       "<<MAGENTA_TEXT<<"\\\\// "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"\\/          "<<RED_TEXT<<"'\\\\//'"<<DEFAULT_COLOR<<"     ("<<setw(20)<<p<<   ")  "<<RED_TEXT<<"_{ ' }_      "<<MAGENTA_TEXT<<"\\/  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"/\\            "<<DEFAULT_COLOR<<"||       (Tel."<<setw(16)<<tel<<   ") "<<RED_TEXT<<"{ '.!.' }     "<<MAGENTA_TEXT<<"/\\  "<<DEFAULT_COLOR<<"|" <<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"//\\\\           "<<DEFAULT_COLOR<<"||       (____________________) "<<RED_TEXT<<"',_/Y\\_,'    "<<MAGENTA_TEXT<<"//\\\\ "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"\\\\//           "<<DEFAULT_COLOR<<"||  "<<GREEN_TEXT<<"."<<DEFAULT_COLOR<<"                             "<<RED_TEXT<<"{_,_}      "<<MAGENTA_TEXT<<"\\\\// "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"\\/            "<<DEFAULT_COLOR<<"||  "<<GREEN_TEXT<<"|\\"<<DEFAULT_COLOR<<"                              "<<DEFAULT_COLOR<<"|         "<<MAGENTA_TEXT<<"\\/  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"/\\        "<<GREEN_TEXT<<"|\\  "<<DEFAULT_COLOR<<"||  "<<GREEN_TEXT<<"| |                           "<<GREEN_TEXT<<"(\\"<<DEFAULT_COLOR<<"|"<<GREEN_TEXT<<"  /)     "<<MAGENTA_TEXT<<"/\\  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"//\\\\       "<<GREEN_TEXT<<"| | "<<DEFAULT_COLOR<<"|| "<<GREEN_TEXT<<"/ /                            "<<GREEN_TEXT<<" \\"<<DEFAULT_COLOR<<"|"<<GREEN_TEXT<<" //     "<<MAGENTA_TEXT<<"//\\\\ "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"\\\\//        "<<GREEN_TEXT<<"\\ \\"<<DEFAULT_COLOR<<"||"<<GREEN_TEXT<<"/ /                               "<<DEFAULT_COLOR<<"|"<<GREEN_TEXT<<"//      "<<MAGENTA_TEXT<<"\\\\// "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"\\/          "<<GREEN_TEXT<<"'\\\\//'    \\   \\./   \\\\   \\./   \\  \\\\  |"<<GREEN_TEXT<<"/  /     "<<MAGENTA_TEXT<<"\\/  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |  "<<MAGENTA_TEXT<<"/\\        "<<GREEN_TEXT<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^     "<<MAGENTA_TEXT<<"/\\  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"//\\\\/\\                                                    "<<MAGENTA_TEXT<<"/\\//\\\\ "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  | "<<MAGENTA_TEXT<<"\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\///\\\\/\\//\\\\\\// "<<DEFAULT_COLOR<<"| "<<endl;
+    cout <<"  |  "<<CYAN_TEXT<<"\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/\\\\///\\\\\\//\\/  "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |     "<<BLUE_TEXT<<"\\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/    \\/\\\\//\\/     "<<DEFAULT_COLOR<<"|"<<endl;
+    cout <<"  |        "<<BLUE_TEXT<<"\\/          \\/          \\/          \\/          \\/        "<<DEFAULT_COLOR<<"|"<<endl;
     cout <<"  |  ________________________________________________________________|__"<<endl;
-    cout <<"  \\_/__________________________________________________________________/"<<endl;
+    cout <<"  \\_/__________________________________________________________________/"<<endl<<std::endl;
 
 }
 
@@ -391,7 +426,7 @@ void doghome() {
 
 void option()
 {
-    cout<<"  ____ _ "<<endl;
+    std::cout<<BLUE_TEXT<<"  ____ _                                       _   _ "<<endl;
     cout<<" / ___| |__   ___   ___  ___  ___   ___  _ __ | |_(_) ___  _ __     "<<endl;
     cout<<"| |   | '_ \\ / _ \\ / _ \\/ __|/ _ \\ / _ \\| '_ \\| __| |/ _ \\| '_ \\  "<<endl;
     cout<<"| |___| | | | (_) | (_) \\__ \\  __/| (_) | |_) | |_| | (_) | | | |"<<endl;
@@ -404,24 +439,24 @@ void option()
     cout<<"|_(_) /_/   \\_\\__,_|\\___/| .__/ \\__|  \\___\\__,_|\\__|           |_____(_) /_/   \\_\\__,_|\\___/| .__/ \\__|   \\__,_|\\___/ \\__, |   "<<endl;
     cout<<"                         |_|                                                                |_|                       |___/  "<<endl;
     cout<<"                                                              "<<endl;
-    cout<<"                                                                                          ___"<<endl;
+    std::cout<<DEFAULT_COLOR"                                                                                          ___"<<endl;
     cout<<"                   /\\__/\\                                                              __/_  '.  .-\"\"\"-."<<endl;
     cout<<"                  (' •w•)づ__/\\                                                        \\_,' | \\-'  /   )'-')"<<endl;
     cout<<"                  (っ  / ( •w•=)                                                          "") '""    \\  (('"""<<endl;
     cout<<"                  し--J  (nn ノ)  pat pat                                                ___Y  ,    .'7 /|"<<endl;
     cout<<"                                                                                        (_,___/...-' (_/_/ "<<endl;
-    cout<<"                                       _____    ____                    _   "<<endl;
+    std::cout<<BLUE_TEXT"                                       _____    ____                    _   "<<endl;
     cout<<"                                      |___ /   |  _ \\  ___  _ __   __ _| |_ ___ "<<endl;
     cout<<"                                        |_ \\   | | | |/ _ \\| '_ \\ / _` | __/ _ \\"<<endl;
     cout<<"                                       ___) |  | |_| | (_) | | | | (_| | ||  __/"<<endl;
     cout<<"                                      |____(_) |____/ \\___/|_| |_|\\__,_|\\__\\___|"<<endl;
     cout<<""<<endl;
-    cout<<"                                                                v"<<endl;
+    std::cout<<DEFAULT_COLOR<<"                                                                v"<<endl;
     cout<<"                                                  ___     .--,  |"<<endl;
     cout<<"                                                 |   |   (('')) /"<<endl;
     cout<<"                                                 |___|___ /  \\/ "<<endl;
     cout<<"                                                         /____\\"<<endl;
-    cout<<"                                                          _/ \\_"<<endl;
+    cout<<"                                                          _/ \\_"<<std::endl;
 }
 
 

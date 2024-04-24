@@ -51,6 +51,7 @@ void LL::show_all(char a){
           t->show_node();
           t = t->move_next();
      }
+     cout<<"-------------------------"<<"\n"<<"\n";
      
 }
 

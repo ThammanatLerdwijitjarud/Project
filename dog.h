@@ -1,14 +1,10 @@
 class dog : public Animal{
 private:
     static int no_dog;
-    // dog * d_next;
 public:
     dog(string,string,string,int,string);
     int get_size_dog();
 
-    // dog * move_next();
-    // void insert(dog*&);
-    // void set_next(dog *);
 };
 
 int dog::no_dog=0;

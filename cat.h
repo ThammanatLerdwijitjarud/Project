@@ -1,14 +1,10 @@
 class cat : public Animal{
 private :
     static int no_cat;
-    // cat * c_next;
 public:
     cat(string,string,string,int,string);
     int get_size_cat();
 
-    // cat * move_next();
-    // void insert(cat*&);
-    // void set_next(cat *);
 };
 
 int cat::no_cat=0;

@@ -1,3 +1,3 @@
-Almond,M,2 year old,20,brown
+Almond,M,2 year olds,20,brown
 Toob,M,5 months,10,black
 Pinky,F,7 month,15,white
