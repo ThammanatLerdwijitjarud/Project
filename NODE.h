@@ -80,12 +80,22 @@ string Animal::get_color()
 void Animal::show_node()
 {   
     cout<<"-------------------------"<<endl;
-    cout<<"Name : "<<get_name()<<endl;
-    cout<<"Gender : "<<get_gender()<<endl;
-    cout<<"Age : "<<get_age()<<endl;
-    cout<<"Weight : "<<get_weight()<<" kg"<<endl;
-    cout<<"Color : "<<get_color()<<endl;
+    cout<<"        __"<<"    Name   : "<<get_name()<<endl;
+    cout<<"   (___()'`;"<<"  Gender : "<<get_gender()<<endl;
+    cout<<"   /,    /`"<<"   Age    : "<<get_age()<<endl;
+    cout<<"   \\\\'--\\\\"<<"    Weight : "<<get_weight()<<" kg"<<endl;
+    cout<<"              Color  : "<<get_color()<<endl;
 }
+
+// void Animal::show_node()
+// {   
+//     cout<<"-------------------------"<<endl;
+//     cout<<"  ^~^  ,"<<"   Name   : "<<get_name()<<endl;
+//     cout<<" ('Y') )"<<"   Gender : "<<get_gender()<<endl;
+//     cout<<" /   \\/ "<<"   Age    : "<<get_age()<<endl;
+//     cout<<"(\\|||/)"<<"    Weight : "<<get_weight()<<" kg"<<endl;
+//     cout<<"           Color  : "<<get_color()<<endl;
+// }
 
 void Animal::insert(Animal*& x) {
     // this->next = x;
