@@ -1,4 +1,3 @@
-Tiger,M,7 months old,15,orange
 Kitty,F,3 years old,10,white
 Meaw,M,2 years old,10,white
 test,M,1 years old,12,orange

@@ -382,7 +382,7 @@ void welcome()
     std::cout<<YELLOW_TEXT<< "                      /   ヽ    \\                  "<<DEFAULT_COLOR<<"| '_ \\| |/ _` |/ __/ _ \\" << endl;
     std::cout<<YELLOW_TEXT<< "                    く  レ|    ^ヽ zZz             "<<DEFAULT_COLOR<<"| |_) | | (_| | (_|  __/" << endl;
     std::cout<<YELLOW_TEXT<< "                      \\_ _ ノヽ   )|               "<<DEFAULT_COLOR<<"| .__/|_|\\__,_|\\___\\___|" << endl;
-    std::cout<<YELLOW_TEXT<< "                      (_と_-ノくニノ               "<<DEFAULT_COLOR<<"|_| " << DEFAULT_COLOR<<endl;
+    std::cout<<YELLOW_TEXT<< "                      (_と_-ノくニノ               "<<DEFAULT_COLOR<<"|_| " << DEFAULT_COLOR <<endl;
     cout<< "" << endl<<endl;
 
     cout<<"Please enter to go to the next page.";
