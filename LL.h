@@ -2,7 +2,7 @@
 #include"cat.h"
 #include"dog.h"
 
-class LL : public Animal {
+class LL {
 private:
      Animal *hol = NULL;
      int size;
@@ -15,7 +15,8 @@ public:
      int d_size();
      Animal* get_hol() const;
      int get_size() const;
-     void set_hol(Animal *new_hol) { hol = new_hol; }
+     void set_hol(Animal *);
+
      void selection();
      void sort_name();
     
@@ -76,6 +77,10 @@ Animal* LL::get_hol() const {
      
 int LL::get_size() const { 
      return size; 
+}
+
+void LL::set_hol(Animal *new_hol) { 
+     hol = new_hol; 
 }
 
 void LL::selection() {
