@@ -19,12 +19,29 @@ int cat::get_size_cat()
     return no_cat;
 }
 
+// void cat::show_node()
+// {   
+//     cout<<"---------------------------------------"<<endl;
+//     cout<<"|    ^~^  ,"<<"   Name   : "<<get_name()<<endl;
+//     cout<<"|   ('Y') )"<<"   Gender : "<<get_gender()<<endl;
+//     cout<<"|   /   \\/ "<<"   Age    : "<<get_age()<<endl;
+//     cout<<"|  (\\|||/)"<<"    Weight : "<<get_weight()<<" kg"<<endl;
+//     cout<<"|           Color  : "<<get_color()<<endl;
+// }
+
 void cat::show_node()
-{   
-    cout<<"-------------------------"<<endl;
-    cout<<"  ^~^  ,"<<"   Name   : "<<get_name()<<endl;
-    cout<<" ('Y') )"<<"   Gender : "<<get_gender()<<endl;
-    cout<<" /   \\/ "<<"   Age    : "<<get_age()<<endl;
-    cout<<"(\\|||/)"<<"    Weight : "<<get_weight()<<" kg"<<endl;
-    cout<<"           Color  : "<<get_color()<<endl;
+{
+    int box_width = 50;
+
+    // Print the top border of the box
+    std::cout << "+-------------------------------------------------+" << std::endl;
+
+    // Print each line of cat information within the box
+    std::cout << "|    ^~^  ,      Name   : " << std::setw(box_width - 26) << std::left << get_name() << "|" << std::endl;
+    std::cout << "|   ('Y') )      Gender : " << std::setw(box_width - 26) << std::left << get_gender() << "|" << std::endl;
+    std::cout << "|   /   \\/       Age    : " << std::setw(box_width - 26) << std::left << get_age() << "|" << std::endl;
+    std::cout << "|  (\\|||/)       Weight : " << setw(2)<<setfill(' ')<<get_weight() << " kg                   |" << std::endl;
+    std::cout << "|                Color  : " << std::setw(box_width - 26) << std::left << get_color() << "|" << std::endl;
 }
+
+

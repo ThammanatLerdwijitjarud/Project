@@ -47,49 +47,42 @@ class Not_number: public exception
 
 int menu()
 {
-    int i,flag=0;
+    int flag=0,no;
+    string i="TBD";
     welcome();
-    // option();
+    option();
     while(flag==0)
     {
-        try {
-            system("clear");
-        //     cout<<R"(Option : 1. Adopt cat
-        //  2. Adopt dog
-        //  3. Donate)" << endl;
-            option();
-                              
-            cout <<"What do you want to do? : ";
-    
+        do {
+            cout<<"What do you want to do ? : ";
             cin>>i;
-            
-            if(cin.fail()) {
-                throw notnum;
-            }
-            while(i<1 ||i>3) { 
-                cout<<"Please enter only 1-3: ";
-                cin>>i;
-                if(cin.fail()) {
-                    throw notnum;
-                }
-            }
-            flag=1;
-        }
-        catch(exception &e) {
-            cout<<e.what()<<endl;
-        }
-        system("clear");
-        if (i == 1) {
-            cout << "1. Adopt cat\n";
-        }
-        else if ( i == 2) {
-            cout << "2. Adopt dog\n";
-        }
-        else {
-            cout << "3. Donate\n";
+            cout<<"Please enter only number 1-3"<<endl;
+        }while(i.length()>1);
+        if(i[0] > '0' && i[0] < '4') {
+            flag = 1;
         }
     }
-    return i;
+    system("clear");
+    no = stoi(i);
+    if(no==1)
+    {
+        cout<<"---------------------"<<"\n";
+        cout<<"|     Adopt cat     |"<<"\n";
+        cout<<"---------------------"<<"\n";
+    }
+    else if(no==2)
+    {
+        cout<<"---------------------"<<"\n";
+        cout<<"|     Adopt dog     |"<<"\n";
+        cout<<"---------------------"<<"\n";
+    }
+    else
+    {
+        cout<<"---------------------"<<"\n";
+        cout<<"|       Donate      |"<<"\n";
+        cout<<"---------------------"<<"\n";
+    }
+    return no;
 }
 
 void Choose_sort(LL &ll)
@@ -385,9 +378,9 @@ void welcome()
     std::cout<<YELLOW_TEXT<< "                      (_と_-ノくニノ               "<<DEFAULT_COLOR<<"|_| " << DEFAULT_COLOR <<endl;
     cout<< "" << endl<<endl;
 
-    cout<<"Please enter to go to the next page.";
-
-    cin.ignore();
+   cout<<"Please enter to go to the next page.";
+    cin.clear();
+    cin.ignore(500,'\n');
     system("clear");
 }
 
