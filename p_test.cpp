@@ -5,6 +5,9 @@
 #include"add_on_func.cpp"
 using namespace std;
 
+#define GREEN_TEXT "\033[32m"
+#define DEFAULT_COLOR "\033[0m"
+
 int main () {
 
     LL L_cat, L_dog;
@@ -18,7 +21,7 @@ int main () {
     system("clear");
 
     int i;
-    char choice;
+    string choice;
     string name;
     while(1)
     {
@@ -51,12 +54,14 @@ int main () {
         }
         cout<<"Do you want to do it again ? (y/n):  ";
         cin>>choice;
-        if(choice=='n' || choice == 'N')
+        if(choice=="y" || choice == "Y")
         {
             system("clear");
+        }
+        else { 
+            cout<<GREEN_TEXT<<"-----Exit the program-----"<<DEFAULT_COLOR<<endl;
             break;
         }
-        else { system("clear"); }
     }
 
     return 0;

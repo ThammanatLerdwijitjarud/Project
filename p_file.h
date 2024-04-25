@@ -31,7 +31,7 @@ void create_cat_ll(LL &ll) {
             getline(X, temp_age, ',');
             // cout<<temp_age<<endl;
             getline(X, temp_weight, ',');
-            // cout<<temp_weight<<endl;
+            cout<<temp_weight<<endl;
             getline(X, temp_color, '\n');
             temp_cat = new cat(temp_name, temp_sex, temp_age, stoi(temp_weight), temp_color);
             // temp_cat->show_node();

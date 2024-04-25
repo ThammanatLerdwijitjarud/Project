@@ -19,15 +19,6 @@ int cat::get_size_cat()
     return no_cat;
 }
 
-// void cat::show_node()
-// {   
-//     cout<<"---------------------------------------"<<endl;
-//     cout<<"|    ^~^  ,"<<"   Name   : "<<get_name()<<endl;
-//     cout<<"|   ('Y') )"<<"   Gender : "<<get_gender()<<endl;
-//     cout<<"|   /   \\/ "<<"   Age    : "<<get_age()<<endl;
-//     cout<<"|  (\\|||/)"<<"    Weight : "<<get_weight()<<" kg"<<endl;
-//     cout<<"|           Color  : "<<get_color()<<endl;
-// }
 
 void cat::show_node()
 {

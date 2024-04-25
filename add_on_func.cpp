@@ -87,36 +87,35 @@ int menu()
 
 void Choose_sort(LL &ll)
 {
-    int choice,flag=0;
+    string choice;
+    int c, flag=0;
     while(flag==0)
     {
-        try {
-            cout<< "Sort by..."<<endl;
-            cout<< "1. Sort by Color"<< "\n"<<"2. Age (min to max)\n"<<"3. Choose!"<<endl;
-            cout<< "You choose : ";
+        cout<< "Sort by..."<<endl;
+        cout<< "1. Sort by Color"<< "\n"<<"2. Age (min to max)\n"<<"3. Choose!"<<endl;
+        do{
+            cin.clear();
+            cin.ignore(50,'\n');
+            cout<<"You choose : ";
             cin>>choice;
-            if(cin.fail()) {
-                throw notnum;
+            if(choice!="1" || choice!="2" || choice!="3")
+            {
+                cout<<"Please enter only 1-3"<<endl;
             }
-            while(choice<1 ||choice>3) { 
-                cout<<"Please enter only 1 or 3: ";
-                cin>>choice;
-                if(cin.fail()) {
-                    throw notnum;
-                }
-            }
-            flag=1;
-        }
-        catch(exception &e) {
-            cout<<e.what()<<endl;
+        }while(choice.length()>1);
+
+        if(choice[0] > '0' && choice[0] < '4') {
+            flag = 1;
         }
     }
-    if(choice==1) {
+
+    c= stoi(choice);
+    if(c==1) {
         system("clear");
         cout << "Sorting by Color\n\n";
         sort_color(ll);
     }
-    else if(choice == 2) {
+    else if(c == 2) {
         system("clear");
         cout << "Sorting by age\n\n";
         ll.selection();
@@ -194,7 +193,7 @@ void decide(LL & ll, char c)
         // cat_select(); ปริ้นรูป
         // sort_color(ll);
         do{
-            cout<<"Which cat do you want to adopt ? \nEnter name : ";
+            cout<<"\nWhich cat do you want to adopt ? \nEnter name : ";
             cin>>name;
             check = check_word(name,ll);
             if(check==0)
@@ -205,15 +204,13 @@ void decide(LL & ll, char c)
             guide(ll,'c');
             cout<<"Confirm (y/n) : ";
             cin>>con;
+            
             if(con=='y' || con=='Y')
             {
                 cout << "please enter your information"<<endl;
                 cout << "Name : ";
                 cin >> person;
-                // cout << "Phone number (0823456789) : ";
-                // cin >> contact;
-
-                //check phone number
+            
                 bool validPhoneNumber = false;
                 while (!validPhoneNumber) {
                     cout << "Phone number (XXX-XXX-XXXX): ";
@@ -229,6 +226,10 @@ void decide(LL & ll, char c)
                 delete_node(name,ll);
                 delete_file("test_cat.txt",name);
                 cout<<"Reserve cat done!"<<"\n";
+            }
+            else
+            {
+                cout<<"cancle reservation"<<endl;
             }
     }
     else
@@ -268,6 +269,10 @@ void decide(LL & ll, char c)
             delete_node(name,ll);
             delete_file("test_dog.txt",name);
             cout<<"Reserve dog done!"<<"\n"; //delete dog ที่จอง
+        }
+        else
+        {
+            cout<<"cancle reservation"<<endl;
         }
     }
 }

@@ -1,3 +1,9 @@
-Kitty,F,3 years old,10,white
-Meaw,M,2 years old,10,white
-test,M,1 years old,2,orange
+Simba,Male,1 year old,7,Ginger
+Bella,Female,3 months old,3,Calico
+Felix,Male,2 years old,6,Gray
+Chloe,Female,5 years old,4,Tortoiseshell
+Oliver,Male,10 months old,5,White
+Nala,Female,2 years old,4,Siamese
+Max,Male,4 years old,6,Tabby
+Mia,Female,2 months old,4,Orange
+Shadow,Male,3 years old,7,Black and White

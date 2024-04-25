@@ -1,3 +1,10 @@
-Almond,M,2 years old,20,brown
-Toob,M,5 months old,10,black
-Pinky,F,7 months old,15,white
+Almond,Male,2 years old,20,brown
+Toob,Male,5 months old,10,black
+Fifa,Male,1 year old,15,black and white
+Sunny,Female,5 months old,7,Golden
+Truffle,Male,4 months old,8,black
+Charlie,Male,2 years old,25,white
+Max ,Male,3 years old,25,copper
+Minnie,Female,5 years old,20,brown
+Pooh,Male,6 months old,10,Golden
+Santa,Male,10 months old,12,Golden

@@ -14,7 +14,7 @@ class Animal {
         string get_age();
         int get_age2();
         string get_color();
-        int get_weight();
+        float get_weight();
         Animal* move_next();
         void insert(Animal*&);
         void set_next(Animal *);
@@ -63,7 +63,7 @@ int Animal::get_age2() {
 
 }
 
-int Animal::get_weight() {
+float Animal::get_weight() {
     return weight;
 }
 
