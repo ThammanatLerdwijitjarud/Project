@@ -80,16 +80,16 @@ int LL::get_size() const {
 
 void LL::selection() {
      Animal * hol_temp = hol;
-     Animal * temp, * temp2 = new Animal, *max_age_node;
-     int max_age;
+     Animal * temp, * temp2 = new Animal, *min_age_node;
+     int min_age;
      while (hol_temp != NULL) {
           temp = hol_temp->move_next();
-          max_age = hol_temp->get_age2();
-          max_age_node = hol_temp;
+          min_age = hol_temp->get_age2();
+          min_age_node = hol_temp;
           while (temp != NULL) {
-               if (temp->get_age2() < max_age) {
-                    max_age = temp->get_age2();
-                    max_age_node = temp;
+               if (temp->get_age2() < min_age) {
+                    min_age = temp->get_age2();
+                    min_age_node = temp;
                }
                if(temp->move_next()==NULL) {
                     break;
@@ -98,8 +98,8 @@ void LL::selection() {
           }
 
           temp2->add_value(hol_temp);
-          hol_temp->add_value(max_age_node);
-          max_age_node->add_value(temp2);
+          hol_temp->add_value(min_age_node);
+          min_age_node->add_value(temp2);
 
           hol_temp = hol_temp->move_next();
      }
@@ -107,16 +107,16 @@ void LL::selection() {
 
 void LL::sort_name() {
      Animal * hol_temp = hol;
-     Animal * temp, * temp2 = new Animal, *max_name;
-     string max;
+     Animal * temp, * temp2 = new Animal, *min_name;
+     string min;
      while (hol_temp != NULL) {
           temp = hol_temp->move_next();
-          max = hol_temp->get_name();
-          max_name = hol_temp;
+          min = hol_temp->get_name();
+          min_name = hol_temp;
           while (temp != NULL) {
-               if (temp->get_name() > max) {
-                    max = temp->get_name();
-                    max_name = temp;
+               if (temp->get_name() < min) {
+                    min = temp->get_name();
+                    min_name = temp;
                }
                if(temp->move_next()==NULL) {
                     break;
@@ -125,8 +125,8 @@ void LL::sort_name() {
           }
 
           temp2->add_value(hol_temp);
-          hol_temp->add_value(max_name);
-          max_name->add_value(temp2);
+          hol_temp->add_value(min_name);
+          min_name->add_value(temp2);
 
           hol_temp = hol_temp->move_next();
      }
