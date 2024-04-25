@@ -12,14 +12,15 @@ class Animal {
         string get_name();
         string get_gender();
         string get_age();
-        string get_age2();
+        int get_age2();
         string get_color();
         int get_weight();
-        virtual void show_node();
         Animal* move_next();
         void insert(Animal*&);
         void set_next(Animal *);
         void add_value(Animal * n1);
+
+        virtual void show_node();
 };
 
 
@@ -43,7 +44,7 @@ string Animal::get_age() {
     return age;
 }
 
-string Animal::get_age2() {
+int Animal::get_age2() {
 
     int L = age.length();
     string temp;
@@ -54,10 +55,10 @@ string Animal::get_age2() {
         }
     }
     if(age[L-6] == 'h') {
-        return to_string(stoi(temp));
+        return (stoi(temp));
     }
     else {
-        return to_string(stoi(temp) * 12);
+        return (stoi(temp) * 12);
     }
 
 }
@@ -70,9 +71,8 @@ string Animal::get_color() {
     return color;
 }
 
-void Animal::show_node()
-{   
-    
+void Animal::show_node() {   
+    cout << "Something wrong!\n";
 }
 
 void Animal::insert(Animal*& x) {
@@ -81,8 +81,7 @@ void Animal::insert(Animal*& x) {
     x->next=this;
 }
 
-Animal* Animal::move_next()
-{
+Animal* Animal::move_next() {
     return next;
 }
 

@@ -201,7 +201,7 @@ void decide(LL & ll, char c)
         // cat_select(); ปริ้นรูป
         // sort_color(ll);
         do{
-            cout<<"Which cat do you want to adopt ? Enter name : ";
+            cout<<"Which cat do you want to adopt ? \nEnter name : ";
             cin>>name;
             check = check_word(name,ll);
             if(check==0)
@@ -243,7 +243,7 @@ void decide(LL & ll, char c)
         // dog_select(); ปริ้นรูป
         // sort_color(ll);
         do{
-            cout<<"Which dog do you want to adopt ? Enter name : ";
+            cout<<"Which dog do you want to adopt ? \nEnter name : ";
             cin>>name;
             check = check_word(name,ll);
             if(check==0)

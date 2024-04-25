@@ -13,8 +13,8 @@ public:
      void add_node(Animal*&);
      void show_all();
      int d_size();
-     Animal* get_hol() const { return hol; }
-     int get_size() const { return size; }
+     Animal* get_hol() const;
+     int get_size() const;
      void set_hol(Animal *new_hol) { hol = new_hol; }
      void selection();
      void sort_name();
@@ -70,17 +70,25 @@ int LL::d_size()
      return size;
 }
 
+Animal* LL::get_hol() const { 
+     return hol; 
+}
+     
+int LL::get_size() const { 
+     return size; 
+}
+
 void LL::selection() {
      Animal * hol_temp = hol;
      Animal * temp, * temp2 = new Animal, *max_age_node;
      int max_age;
      while (hol_temp != NULL) {
           temp = hol_temp->move_next();
-          max_age = stoi(hol_temp->get_age2());
+          max_age = hol_temp->get_age2();
           max_age_node = hol_temp;
           while (temp != NULL) {
-               if (stoi(temp->get_age2()) < max_age) {
-                    max_age = stoi(temp->get_age2());
+               if (temp->get_age2() < max_age) {
+                    max_age = temp->get_age2();
                     max_age_node = temp;
                }
                if(temp->move_next()==NULL) {
