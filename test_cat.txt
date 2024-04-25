@@ -5,5 +5,7 @@ Chloe,Female,5 years old,4,Tortoiseshell
 Oliver,Male,10 months old,5,White
 Nala,Female,2 years old,4,Siamese
 Max,Male,4 years old,6,Tabby
-Mia,Female,2 months old,4,Orange
 Shadow,Male,3 years old,7,Black and White
+Cherry,Male,2 years old,6,Siamese
+Candy,Female,1 years old,7,Calico
+Carrot,Male,2 years old,4,Ginger
