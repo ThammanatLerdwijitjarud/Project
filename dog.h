@@ -4,7 +4,7 @@ private:
 public:
     dog(string,string,string,int,string);
     int get_size_dog();
-
+    void show_node();
 };
 
 int dog::no_dog=0;
@@ -19,15 +19,12 @@ int dog::get_size_dog()
     return no_dog;
 }
 
-// dog* dog::move_next()
-// {
-//     return d_next;
-// }
-
-// void dog::insert(dog*& x) {
-//     x->d_next=this;
-// }
-
-// void dog::set_next(dog *n) {
-//     this->d_next=n;
-// }
+void dog::show_node()
+{   
+    cout<<"-------------------------"<<endl;
+    cout<<"        __"<<"    Name   : "<<get_name()<<endl;
+    cout<<"   (___()'`;"<<"  Gender : "<<get_gender()<<endl;
+    cout<<"   /,    /`"<<"   Age    : "<<get_age()<<endl;
+    cout<<"   \\\\'--\\\\"<<"    Weight : "<<get_weight()<<" kg"<<endl;
+    cout<<"              Color  : "<<get_color()<<endl;
+}

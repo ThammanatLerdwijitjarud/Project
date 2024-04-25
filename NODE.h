@@ -15,7 +15,7 @@ class Animal {
         string get_age2();
         string get_color();
         int get_weight();
-        void show_node();
+        virtual void show_node();
         Animal* move_next();
         void insert(Animal*&);
         void set_next(Animal *);
@@ -23,8 +23,7 @@ class Animal {
 };
 
 
-Animal::Animal(string n, string g, string a, int w, string c)
-{
+Animal::Animal(string n, string g, string a, int w, string c) {
     name = n;
     gender = g;
     age = a;
@@ -32,23 +31,19 @@ Animal::Animal(string n, string g, string a, int w, string c)
     color = c;
 }
 
-string Animal::get_name()
-{
+string Animal::get_name() {
     return name;
 }
 
-string Animal::get_gender()
-{
+string Animal::get_gender() {
     return gender;
 }
 
-string Animal::get_age()
-{
+string Animal::get_age() {
     return age;
 }
 
-string Animal::get_age2()
-{
+string Animal::get_age2() {
 
     int L = age.length();
     string temp;
@@ -67,35 +62,18 @@ string Animal::get_age2()
 
 }
 
-int Animal::get_weight()
-{
+int Animal::get_weight() {
     return weight;
 }
 
-string Animal::get_color()
-{
+string Animal::get_color() {
     return color;
 }
 
 void Animal::show_node()
 {   
-    cout<<"-------------------------"<<endl;
-    cout<<"        __"<<"    Name   : "<<get_name()<<endl;
-    cout<<"   (___()'`;"<<"  Gender : "<<get_gender()<<endl;
-    cout<<"   /,    /`"<<"   Age    : "<<get_age()<<endl;
-    cout<<"   \\\\'--\\\\"<<"    Weight : "<<get_weight()<<" kg"<<endl;
-    cout<<"              Color  : "<<get_color()<<endl;
+    
 }
-
-// void Animal::show_node()
-// {   
-//     cout<<"-------------------------"<<endl;
-//     cout<<"  ^~^  ,"<<"   Name   : "<<get_name()<<endl;
-//     cout<<" ('Y') )"<<"   Gender : "<<get_gender()<<endl;
-//     cout<<" /   \\/ "<<"   Age    : "<<get_age()<<endl;
-//     cout<<"(\\|||/)"<<"    Weight : "<<get_weight()<<" kg"<<endl;
-//     cout<<"           Color  : "<<get_color()<<endl;
-// }
 
 void Animal::insert(Animal*& x) {
     // this->next = x;

@@ -4,6 +4,7 @@ private :
 public:
     cat(string,string,string,int,string);
     int get_size_cat();
+    void show_node();
 
 };
 
@@ -18,17 +19,12 @@ int cat::get_size_cat()
     return no_cat;
 }
 
-
-// cat* cat::move_next()
-// {
-//     return c_next;
-// }
-
-// void cat::insert(cat*& x) {
-//     x->c_next=this;
-// }
-
-// void cat::set_next(cat *n) {
-//     this->c_next=n;
-// }
-
+void cat::show_node()
+{   
+    cout<<"-------------------------"<<endl;
+    cout<<"  ^~^  ,"<<"   Name   : "<<get_name()<<endl;
+    cout<<" ('Y') )"<<"   Gender : "<<get_gender()<<endl;
+    cout<<" /   \\/ "<<"   Age    : "<<get_age()<<endl;
+    cout<<"(\\|||/)"<<"    Weight : "<<get_weight()<<" kg"<<endl;
+    cout<<"           Color  : "<<get_color()<<endl;
+}
