@@ -16,8 +16,8 @@ public:
      Animal* get_hol() const { return hol; }
      int get_size() const { return size; }
      void set_hol(Animal *new_hol) { hol = new_hol; }
-     void clear();
      void selection();
+     void sort_name();
     
     ~LL();
     LL();
@@ -79,8 +79,7 @@ void LL::selection() {
           max_age = stoi(hol_temp->get_age2());
           max_age_node = hol_temp;
           while (temp != NULL) {
-               if (stoi(temp->get_age2()) > max_age) {
-                    // cout <<"get ";
+               if (stoi(temp->get_age2()) < max_age) {
                     max_age = stoi(temp->get_age2());
                     max_age_node = temp;
                }
@@ -93,6 +92,33 @@ void LL::selection() {
           temp2->add_value(hol_temp);
           hol_temp->add_value(max_age_node);
           max_age_node->add_value(temp2);
+
+          hol_temp = hol_temp->move_next();
+     }
+}
+
+void LL::sort_name() {
+     Animal * hol_temp = hol;
+     Animal * temp, * temp2 = new Animal, *max_name;
+     string max;
+     while (hol_temp != NULL) {
+          temp = hol_temp->move_next();
+          max = hol_temp->get_name();
+          max_name = hol_temp;
+          while (temp != NULL) {
+               if (temp->get_name() > max) {
+                    max = temp->get_name();
+                    max_name = temp;
+               }
+               if(temp->move_next()==NULL) {
+                    break;
+               }
+               temp = temp->move_next();
+          }
+
+          temp2->add_value(hol_temp);
+          hol_temp->add_value(max_name);
+          max_name->add_value(temp2);
 
           hol_temp = hol_temp->move_next();
      }

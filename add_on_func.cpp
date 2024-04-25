@@ -320,44 +320,6 @@ void sort_color(LL &ll)
     }
 }
 
-//ปัญหาคือ อายุมีทั้งเดือนและปี มันเลย sort ไม่ได้
-// void selection_sort(LL &ll, char c) {
-
-//     int flag = 1;
-//     int s = ll.d_size();
-//     cout<<"size = "<<s<<endl;
-//     string temp;
-
-//     Animal *a = ll.get_hol();
-//     Animal *min , *temp_a;
-    
-//     while(a!=NULL){
-
-//         min = a;
-//         flag = 0;
-//         temp_a = a->move_next();
-//         cout<<"sort1"<<endl;
-
-//         while(temp_a!=NULL) {
-//             if (a->get_age() > temp_a->get_age()) {
-//                 min = temp_a;
-//                 flag = 1;
-//                 cout<<"sort2"<<endl;
-//             }
-//         }
-//         if (flag == 1) {
-//             temp = min->get_age();
-//             min->get_age() = a->get_age();
-//             a->get_age() = temp;
-//             min = min->move_next();
-//             a->show_node();
-//         }
-//     }
-//     cout<<"\n";
-
-// }
-
-
 void bill(string p,string nani,string tel)
 {
     cout<<"bill1"<<endl;

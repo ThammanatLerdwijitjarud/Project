@@ -10,7 +10,9 @@ int main () {
     LL L_cat, L_dog;
 
     create_cat_ll(L_cat);
+    L_cat.sort_name();
     create_dog_ll(L_dog);
+    L_dog.sort_name();
     //welcome();
 
     system("clear");
