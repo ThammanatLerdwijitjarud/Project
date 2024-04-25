@@ -61,6 +61,7 @@ int menu()
             cout <<"What do you want to do? : ";
     
             cin>>i;
+            
             if(cin.fail()) {
                 throw notnum;
             }
@@ -76,6 +77,16 @@ int menu()
         catch(exception &e) {
             cout<<e.what()<<endl;
         }
+        system("clear");
+        if (i == 1) {
+            cout << "1. Adopt cat\n";
+        }
+        else if ( i == 2) {
+            cout << "2. Adopt dog\n";
+        }
+        else {
+            cout << "3. Donate\n";
+        }
     }
     return i;
 }
@@ -87,14 +98,14 @@ void Choose_sort(LL &ll)
     {
         try {
             cout<< "Sort by..."<<endl;
-            cout<< "1. color"<< "\n"<<"2. age (min to max)"<<"\n"<<"3. Not sure (view all)"<<endl;
+            cout<< "1. Sort by Color"<< "\n"<<"2. Age (min to max)\n"<<"3. Choose!"<<endl;
             cout<< "You choose : ";
             cin>>choice;
             if(cin.fail()) {
                 throw notnum;
             }
             while(choice<1 ||choice>3) { 
-                cout<<"Please enter only 1-3: ";
+                cout<<"Please enter only 1 or 3: ";
                 cin>>choice;
                 if(cin.fail()) {
                     throw notnum;
@@ -107,22 +118,20 @@ void Choose_sort(LL &ll)
         }
     }
     if(choice==1) {
+        system("clear");
+        cout << "Sorting by Color\n\n";
         sort_color(ll);
     }
-    else if(choice==2)
-    {
+    else if(choice == 2) {
+        system("clear");
+        cout << "Sorting by age\n\n";
         ll.selection();
         ll.show_all();
-        // ยังทำไม่ได้
-        // selection_sort(ll,a);
     }
     else {
-        ll.set_hol(ll.merge_sort((ll.get_hol())));
-        ll.show_all();
+        return;        
     }
-
 }
-
 
 void guide(LL &ll,char c)
 {
