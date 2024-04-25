@@ -18,7 +18,7 @@ class Animal {
         Animal* move_next();
         void insert(Animal*&);
         void set_next(Animal *);
-        void add_value(Animal * n1);
+        void add_value(Animal *);
 
         virtual void show_node();
 };
