@@ -10,6 +10,7 @@ void create_dog_ll(LL &ll);
 void create_ll(LL &ll);
 void delete_node(string name, LL& ll);
 void delete_file(string& filename,string& name);
+string lowcase(string temp);
 
 void create_cat_ll(LL &ll) {
     
@@ -132,6 +133,14 @@ void delete_file(const std::string& filename,const std::string& name) {
     // Remove & rename
     remove(filename.c_str());
     rename("temp.txt", filename.c_str());
+}
+
+string lowcase(string str) {
+    string temp;
+    for(int i = 0; i < str.length(); i++) {
+        temp += tolower(str[i]);
+    }
+    return temp;
 }
 
 #endif

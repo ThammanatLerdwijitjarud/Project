@@ -282,11 +282,14 @@ void decide(LL & ll, char c)
 int check_word(string n,LL &ll)
 {
     Animal *a = ll.get_hol();
+    string temp;
     int check=0;
+    n = lowcase(n);
 
     while(a!=NULL)
     {
-        if(n==a->get_name())
+        temp = lowcase(a->get_name());
+        if(n==temp)
         {
             check = 1; //เจอ
         }
