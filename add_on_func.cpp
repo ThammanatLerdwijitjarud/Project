@@ -193,6 +193,7 @@ void decide(LL & ll, char c)
         // cat_select(); ปริ้นรูป
         // sort_color(ll);
         do{
+            cout<<"+-------------------------------------------------+" <<"\n"<<"\n";
             cout<<"\nWhich cat do you want to adopt ? \nEnter name : ";
             cin>>name;
             check = check_word(name,ll);
@@ -237,6 +238,7 @@ void decide(LL & ll, char c)
         // dog_select(); ปริ้นรูป
         // sort_color(ll);
         do{
+            cout<<"+-------------------------------------------------+" <<"\n"<<"\n";
             cout<<"Which dog do you want to adopt ? \nEnter name : ";
             cin>>name;
             check = check_word(name,ll);
@@ -298,12 +300,22 @@ void sort_color(LL &ll)
     Animal *a = ll.get_hol();
     int i,flag=0;
     string col;
+    string temp;
     cout<< "Which color do you want ? : ";
     cin>>col;
 
+    for(int i = 0; i < col.size(); i++) {
+        col[i] = tolower(col[i]);
+    }
+    
     while(a!=NULL)
     {
-        if(col==a->get_color())
+
+        temp = a->get_color();
+        for(int i = 0; i < temp.size(); i++) {
+            temp[i] = tolower(temp[i]);
+        }
+        if(col==temp)
         {
             a->show_node();
             flag++;
