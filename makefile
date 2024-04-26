@@ -1,5 +1,5 @@
-compile: p_test.cpp
-	 g++  p_test.cpp -o animal
+compile: main.cpp
+	 g++  main.cpp -o animal
 
 run: animal
 	 ./animal
