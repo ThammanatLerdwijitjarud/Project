@@ -73,8 +73,37 @@ bool validatePhoneNumber(const string& phoneNumber) {
 
 bool validateDate(const string& date) {
     // format DD-MM-YYYY
-    string dayStr = date.substr(0, 2);
-    string monthStr = date.substr(3, 2);
+    // string dayStr = date.substr(0, 2);
+    // string monthStr = date.substr(3, 2);
+
+    string dayStr;
+    string monthStr;
+    string yearStr;
+
+    int i = 0;
+    while (date[i] != '/') {
+        if(date[i] > '9') {
+            return false;
+        }
+        dayStr += date[i];
+        i++;
+    }
+    i++;
+    while (date[i] != '/') {
+        if(date[i] > '9') {
+            return false;
+        }
+        monthStr += date[i];
+        i++;
+    }
+    i++;
+    while (i < date.length()) {
+        if(date[i] > '9') {
+            return false;
+        }
+        yearStr += date[i];
+        i++;
+    }
 
     int day = stoi(dayStr);
     int month = stoi(monthStr);
