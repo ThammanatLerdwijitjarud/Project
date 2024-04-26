@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+#include <exception>
 
 using namespace std;
 
@@ -120,8 +121,25 @@ int donation() {
         }
     }
 
-    cout << "Enter donation amount                    : ";
-    cin >> amount;
+    int flag = 1;
+
+    while (flag == 1) {
+        try {
+            cout << "Enter donation amount                    : ";
+            cin >> amount;
+            if (cin.fail()) {
+                throw amount;
+            }
+            else {
+                flag = 0;
+            }
+        }
+        catch (const double x) {
+            cin.clear();
+			cin.ignore(50, '\n');
+            cout << "Please type in a number\n";
+        }
+    }
 
     if (amount <= 0) {
         cout << "Invalid donation amount. Please enter a positive value." << endl;
